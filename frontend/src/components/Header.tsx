@@ -31,7 +31,29 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-orange1">
+  <nav className="navbar navbar-expand-lg orange5">
+    <div className="container-fluid">
+      <div className="vr text-white ms-5"></div>
+      <a className="navbar-brand text-light ms-3" href="#">Politechnika Świętokrzyska</a>
+      <div className="vr text-white"></div>
+
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0"> </ul>
+
+        <div className="vr text-white "></div>
+        <div className="d-flex mx-3 text-white">Lang</div>
+        <div className="vr text-white"></div>
+        <div className="d-flex mx-3 text-white">Bip</div>
+        <div className="vr text-white"></div>
+        <div className="d-flex mx-3 text-white">Serch</div>
+        <div className="vr text-white me-5"></div>
+
+
+    </div>
+  </nav>
+
+
+
+   /**  <header className="bg-orange1">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
@@ -106,6 +128,6 @@ export default function Header() {
           </div>
         </Dialog.Panel>
       </Dialog>
-    </header>
+    </header> */
   )
 }
