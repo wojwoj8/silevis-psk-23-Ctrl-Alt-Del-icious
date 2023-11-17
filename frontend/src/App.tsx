@@ -14,7 +14,6 @@ function App() {
       <Header/>
       <NavigationComponent/>
       <BannerComponent/>
-      <HubComponent/>
       <Outlet/>
       <Footer/>
     </>
