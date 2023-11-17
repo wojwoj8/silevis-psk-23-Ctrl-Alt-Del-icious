@@ -22,9 +22,26 @@ const FormComponent = () =>{
           }
     }
 
+    const getEmailData = async () =>{
+        
+        try{
+            const response = await axios.get(`/api/user/s011111@student.tu.kielce.pl`,  {
+                headers: {
+                    'accept': 'application/json',
+                  },
+              });
+              
+           console.log(response.data)
+        }catch (error: any) {
+          
+            console.log(error);
+          }
+    }
+     
     return(
         <div>
-            <button className='bg-blue-300' onClick={getData}>get data</button>
+            <button className='btn btn-primary' onClick={getData}>get data</button>
+            <button className='btn btn-danger' onClick={getEmailData}>get data</button>
             test
         </div>
     )

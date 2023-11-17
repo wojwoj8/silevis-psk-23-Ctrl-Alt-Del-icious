@@ -4,6 +4,8 @@ import App from './App.tsx'
 import './index.css'
 import FormComponent from './components/FormComponent.tsx'
 import {  RouterProvider, createBrowserRouter } from 'react-router-dom'
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const router = createBrowserRouter([{
   path: "/",
