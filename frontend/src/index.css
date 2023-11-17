@@ -10,3 +10,16 @@
 .orange5 {
     background-color: #EF7A1B;
   }
+
+
+.text-orange5{
+  color:#EF7A1B;
+}
+
+.banner{
+    background: #ffedd5 url(https://weaii.tu.kielce.pl/wp-content/uploads/2021/05/web-bgr-weaii.jpg) center top fixed;
+}
+
+.max75p {
+  max-width: 75%;
+}
