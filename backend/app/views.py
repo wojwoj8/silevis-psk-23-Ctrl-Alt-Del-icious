@@ -19,7 +19,12 @@ from rest_framework.response import Response
 from rest_framework.generics import get_object_or_404
 
 # Create your views here.
-class TestView(generics.ListAPIView):
+class TestView(generics.GenericAPIView,
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    ):
     
     serializer_class = Attatchment1Serializer
 
@@ -28,3 +33,12 @@ class TestView(generics.ListAPIView):
         attachment = get_object_or_404(Attachment1, id=1)
         serializer = self.serializer_class(attachment)
         return Response(serializer.data)
+    
+    def post(self, request, *args, **kwargs):
+        print(request.data)
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        print(serializer.errors)
+        return Response(serializer.errors, status=400)
