@@ -7,11 +7,16 @@ import {  RouterProvider, createBrowserRouter } from 'react-router-dom'
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Doc1 from './components/pdf/Doc1.tsx'
+import HubComponent from './components/HubComponent.tsx'
 
 const router = createBrowserRouter([{
   path: "/",
   element: <App/>,
   children:[
+    {
+      path:"/",
+      element: <HubComponent/>
+    },
     {
       path: "/form",
       element: <FormComponent/>,
