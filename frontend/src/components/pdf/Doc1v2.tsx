@@ -27,10 +27,12 @@ export default function Doc1v2(){
                 <div className="flex flex-col items-center">
                     <span>W imieniu Zakładu:</span>
                     <span className="mt-36">……………………………………………….</span>
+                    <span className="text-sm"><b>Podpis i pieczęć</b></span>
                 </div>
                 <div className="flex flex-col items-center">
                     <span>W imieniu Politechniki Świętokrzyskiej:</span>
                     <span className="mt-36">……………………………………………….</span>
+                    <span className="text-sm"><b>Podpis i pieczęć</b></span>
                 </div>
             </div>
         </div>
