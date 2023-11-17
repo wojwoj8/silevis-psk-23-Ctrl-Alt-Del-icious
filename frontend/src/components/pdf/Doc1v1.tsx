@@ -4,7 +4,7 @@ export default function Doc1(){
     <span className="font-bold text-xs ">Załącznik nr 1 do Zarządzenia Nr 54/19</span>
     <span className="font-bold text-xs ">Rektora Politechniki Świętokrzyskiej z dnia 20 września 2019 r.</span>
     </div>
-    <h1 className="mt-10 text-center">Umowa o organizację praktyki studenta Politechniki Świętokrzyskiej</h1>
+    <h1 className="mt-10 text-center text-3xl">Umowa o organizację praktyki studenta Politechniki Świętokrzyskiej</h1>
     <div>
         <span className="mx-10">zawarta w dniu ........................................ r. pomiędzy:</span><br></br>
         <span className="mx-10">Politechniką Świętokrzyską al. Tysiąclecia Państwa Polskiego 7, 25-314 Kielce,</span><br></br>
@@ -36,5 +36,6 @@ export default function Doc1(){
     <span >z tytułu pracy wykonywanej w trakcie odbywania praktyki, stosowna umowa zawierana jest</span><br></br>
     <span >pomiędzy Zakładem a studentem, bez udziału i pośrednictwa Uczelni.</span><br></br>
     </div>
+    <span className="text-center block mt-20">Strona 1 z 2</span>
     </div>)
 }
