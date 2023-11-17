@@ -9,7 +9,7 @@ const FormComponent = () =>{
     const getData = async () =>{
         
         try{
-            const response = await axios.get('/api/all-emails/',  {
+            const response = await axios.get('/backend/testview/',  {
                 headers: {
                     'accept': 'application/json',
                   },
