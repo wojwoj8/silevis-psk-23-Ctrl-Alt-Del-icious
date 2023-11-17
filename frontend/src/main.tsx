@@ -6,8 +6,9 @@ import FormComponent from './components/FormComponent.tsx'
 import {  RouterProvider, createBrowserRouter } from 'react-router-dom'
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Doc1 from './components/pdf/Doc1v1.tsx'
+import Doc1v1 from './components/pdf/Doc1v1.tsx'
 import HubComponent from './components/HubComponent.tsx'
+import Doc1v2 from './components/pdf/Doc1v2.tsx'
 
 const router = createBrowserRouter([{
   path: "/",
@@ -23,7 +24,11 @@ const router = createBrowserRouter([{
     },
     {
       path:"/doc1",
-      element: <Doc1/>
+      element: <Doc1v1/>
+    },
+    {
+      path:"/doc2",
+      element: <Doc1v2/>
     }
   ]
 },])

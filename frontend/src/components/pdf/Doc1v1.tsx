@@ -1,4 +1,4 @@
-export default function Doc1(){
+export default function Doc1v1(){
     return(<div className="page">
     <div className=" mt-10 flex flex-col items-end gap-0">
     <span className="font-bold text-xs ">Załącznik nr 1 do Zarządzenia Nr 54/19</span>
