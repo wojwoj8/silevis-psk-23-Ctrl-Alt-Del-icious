@@ -6,6 +6,7 @@ import FormComponent from './components/FormComponent.tsx'
 import {  RouterProvider, createBrowserRouter } from 'react-router-dom'
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Doc1 from './components/pdf/Doc1.tsx'
 
 const router = createBrowserRouter([{
   path: "/",
@@ -14,10 +15,13 @@ const router = createBrowserRouter([{
     {
       path: "/form",
       element: <FormComponent/>,
+    },
+    {
+      path:"/doc1",
+      element: <Doc1/>
     }
-    
   ]
-}])
+},])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
