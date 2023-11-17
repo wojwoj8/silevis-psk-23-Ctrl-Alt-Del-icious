@@ -3,7 +3,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import BannerComponent from './components/BannerComponent'
 import NavigationComponent from './components/NavigationComponent'
-import HubComponent from './components/hubComponent'
+import HubComponent from './components/HubComponent'
 
 
 function App() {
