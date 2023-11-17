@@ -22,7 +22,7 @@ class Attachment1(models.Model):
     zawarcie_umowy = models.DateField()
     dziekan_wydzialu = models.CharField(max_length=255)
     miasto = models.CharField(max_length=50)
-    ulica = models.TextField()
+    ulica = models.CharField(max_length=100)
     krs = models.CharField(max_length=30)
     nip = models.CharField(max_length=30)
     regon = models.CharField(max_length=30)
