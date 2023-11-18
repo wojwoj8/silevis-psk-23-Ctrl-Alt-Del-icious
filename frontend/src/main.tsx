@@ -34,10 +34,6 @@ const router = createBrowserRouter([{
       element: <AdminComponent/>,
     },
     {
-      path: "/form",
-      element: <FormComponent/>,
-    },
-    {
       path: "/userpanel",
       element: <UserPanel/>,
     },

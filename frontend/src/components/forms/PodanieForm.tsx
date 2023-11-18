@@ -6,7 +6,7 @@ import Podanie from "../pdf/Podanie";
 
 export default function PoadnieForm(){
     
-    const [dataForm, setDataFomr] = useState<PodanieInterface>({
+    const [dataForm, setDataFrom] = useState<PodanieInterface>({
         imie_nazwisko:'',
         pesel:'',
         adres:'',
@@ -27,7 +27,7 @@ export default function PoadnieForm(){
       ) => {
         const { name, value } = event.target;
         console.log(name)
-        setDataFomr((prevFormData) => ({
+        setDataFrom((prevFormData) => ({
         ...prevFormData!,
         [name]: value,
         }));

@@ -153,3 +153,22 @@ class UserPanelView(generics.GenericAPIView,
             return Response(serializer.data)
         print(serializer.errors)
         return Response(serializer.errors, status=400)
+    
+class DocumentExistView(generics.GenericAPIView,
+                    mixins.ListModelMixin,
+                    mixins.CreateModelMixin,
+                    mixins.UpdateModelMixin,
+                    mixins.DestroyModelMixin):
+    
+    def get(self, request, *args, **kwargs):
+        if 'nr_albumu' in kwargs:
+            nr_albumu = kwargs.get('nr_albumu')
+            
+            attachments = self.get_queryset().filter(nr_albumu=nr_albumu)
+            if attachments.exists():
+                return Response({"not_found": "No attachments found"}, status=status.HTTP_200_OK)
+            return Response({"found": "Attachments found"}, status=status.HTTP_200_OK)
+        else:
+            attachments = self.get_queryset()  # Use get_queryset() to get all instances
+            serializer = self.serializer_class(attachments, many=True)
+            return Response(serializer.data)
