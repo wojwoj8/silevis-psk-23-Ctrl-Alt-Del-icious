@@ -3,6 +3,8 @@ import axios, { AxiosError } from 'axios';
 import Doc1v1 from '../pdf/Doc1v1';
 import Doc1v2 from '../pdf/Doc1v2';
 import { FormData } from '../interfaces/Form';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const FormComponent = () =>{
 
@@ -92,6 +94,31 @@ const FormComponent = () =>{
     }
 
 
+    const downloadPDF = async ()=>{
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+        if(page1 && page2){
+            const pdf1 = await html2canvas(page1, {scale:2});
+            const pdf2 = await html2canvas(page2, {scale:2});
+            
+            const image1 = pdf1.toDataURL('image/png');
+            const image2 = pdf2.toDataURL('image/png');
+
+
+            const pdfDoc = new jsPDF();
+            const width = pdfDoc.internal.pageSize.getWidth();
+            const height1 = (pdf1.height * width) / pdf1.width;
+            const height2 = (pdf2.height * width) / pdf2.width;
+
+            pdfDoc.addImage(image1, 'PNG', 0, 0, width, height1);
+            pdfDoc.addPage();
+            pdfDoc.addImage(image2, 'PNG', 0, 0, width, height2);
+            pdfDoc.save('component.pdf');
+        }
+        
+    }
+
+
     useEffect(()=>{
         const fetchData = async () =>{
             await getEmailData()
@@ -104,7 +131,7 @@ const FormComponent = () =>{
         <div className='container'>
             <button className='btn btn-primary' onClick={getData}>get data</button>
             <button className='btn btn-danger'  onClick={getEmailData}>get data</button>
-
+            <button className='btn btn-primary' onClick={downloadPDF}>Download PDF</button>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="zawarcie_umowy" className="form-label">Zawarcie Umowy</label>
