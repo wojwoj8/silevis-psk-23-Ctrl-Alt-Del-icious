@@ -23,6 +23,8 @@ const FormComponent = () =>{
       };
     const navigate = useNavigate();
     const [status, setStatus] = useState(false)
+    
+    const [language, setLanguage] = useState('pl');
     const currentDate = new Date().toISOString().split('T')[0];
     const [userData, setUserData] = useState()
     const [docData, setDocData] = useState()
@@ -222,6 +224,7 @@ const FormComponent = () =>{
             <button className='btn btn-primary' onClick={getData}>get data</button>
             <button className='btn btn-danger'  onClick={getEmailData}>get data</button>
             <button className='btn btn-primary' onClick={downloadPDF}>Download PDF</button>
+            <button className='btn btn-primary' onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>Change language: {language}</button>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="zawarcie_umowy" className="form-label">Zawarcie Umowy</label>
@@ -324,7 +327,7 @@ const FormComponent = () =>{
             
         </div>
         <div className="flex flex-col lg:flex-row lg:justify-center gap-5 items-center">
-                <Doc1v1 data={formData}/>
+                <Doc1v1 data={formData} lang={language}/>
                 <Doc1v2 data={formData}/>
             </div>
         </div>

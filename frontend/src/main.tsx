@@ -8,10 +8,11 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HubComponent from './components/HubComponent.tsx'
 import Before from './components/before/Before.tsx'
-import Podanie from './components/pdf/Podanie.tsx'
 import AdminComponent from './components/AdminComponent.tsx'
 import UserPanel from './components/UserPanel.tsx'
 import AdminAtt1 from './components/AdminAtt1.tsx'
+import PoadnieForm from './components/forms/PodanieForm.tsx'
+
 
 const router = createBrowserRouter([{
   path: "/",
@@ -51,7 +52,7 @@ const router = createBrowserRouter([{
     },
     {
       path:"/podanie",
-      element: <Podanie/>
+      element: <PoadnieForm/>
     },
     {
       path:"/admin",

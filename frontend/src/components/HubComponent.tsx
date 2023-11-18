@@ -47,11 +47,6 @@ export default function HubComponent(){
                         </div>
                     </div>
                 </div>
-
-
-
-
-
                 <p>Praktyka studencka może być odbywana w wybranym przez studenta podmiocie gospodarczym, instytucji lub zakładzie o profilu umożliwiającym zrealizowanie celów określonych w programie praktyk.
                 Student we własnym zakresie wyszukuje miejsce odbywania praktyki, przedstawia propozycję Kierownikowi ds. praktyk studenckich na Wydziale (odpowiednio dla danego kierunku studiów) w celu uzyskania akceptacji. Po uzyskaniu zgody student składa w wybranym przez siebie zakładzie pracy podanie z prośbą o przyjęcie na praktykę (w przypadku gdy tego wymaga pracodawca). Warunki realizacji praktyki przez studenta określa Umowa zawarta pomiędzy Politechniką Świętokrzyską i pracodawcą. Praktyka ma z reguły charakter nieodpłatnej pracy na rzecz danego zakładu pracy. Uczelnia nie ubezpiecza studentów – praktykantów od następstw nieszczęśliwych wypadków (NW). Decyzję o ewentualnym ubezpieczeniu student podejmuje samodzielnie.
                 Przed odbyciem praktyki student powinien dostarczyć w nieprzekraczalnych terminie do dnia 3.06.2023 następujące dokumenty do Dziekanatu:     
