@@ -5,6 +5,8 @@ export default function Before(){
     <section >
         <div>
             <div className="flex items-center flex-col">
+                <h2>Przed Praktyka</h2>
+
                 <h2>Generatory PDF</h2>
                 <span>Wygeneruj swoje pdf do wydrukowania</span>
             </div>
