@@ -28,6 +28,13 @@ interface PodanieInterface{
   adres:string;
   telefon:string;
   kierunek:string;
+  nazwa_firmy:string
+  addres_firmy:string
+  miejsce_praktyk:string
+  imie_nazwisko_firmy:string
+  tel_kon:string
+  dat_start:string
+  data_kon:string
 }
 
 interface OswiadczenieInterface{

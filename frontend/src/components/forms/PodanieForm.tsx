@@ -11,7 +11,15 @@ export default function PoadnieForm(){
         pesel:'',
         adres:'',
         telefon:'',
-        kierunek:''
+        kierunek:'',
+        
+        nazwa_firmy:'',
+        addres_firmy:'',
+        miejsce_praktyk:'',
+        imie_nazwisko_firmy:'',
+        tel_kon:'',
+        dat_start:'',
+        data_kon:'',
     })
     
     const handleInputChange = (
@@ -68,6 +76,38 @@ export default function PoadnieForm(){
                     <div className="mb-3 col-md-4">
                         <label htmlFor="telefon" className="form-label">telefon</label>
                         <input type="text" className="form-control" value={dataForm.telefon} onChange={handleInputChange} name="telefon" placeholder="KRS"/>
+                    </div>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="nazwa_firmy" className="form-label">nazwa_firmy</label>
+                        <input type="text" className="form-control" value={dataForm.nazwa_firmy} onChange={handleInputChange} name="nazwa_firmy" placeholder="nazwa_firmy"/>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="pesel" className="form-label">addres_firmy</label>
+                        <input type="text" className="form-control" value={dataForm.addres_firmy} onChange={handleInputChange} name="addres_firmy" placeholder="addres_firmy"></input>
+                    </div>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="telefon" className="form-label">miejsce_praktyk</label>
+                        <input type="text" className="form-control" value={dataForm.miejsce_praktyk} onChange={handleInputChange} name="miejsce_praktyk" placeholder="miejsce_praktyk"/>
+                    </div>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="telefon" className="form-label">imie_nazwisko_firmy</label>
+                        <input type="text" className="form-control" value={dataForm.imie_nazwisko_firmy} onChange={handleInputChange} name="imie_nazwisko_firmy" placeholder="imie_nazwisko_firmy"/>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="pesel" className="form-label">tel_kon</label>
+                        <input type="text" className="form-control" value={dataForm.tel_kon} onChange={handleInputChange} name="tel_kon" placeholder="tel_kon"></input>
+                    </div>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="dat_start" className="form-label">dat_start</label>
+                        <input type="date" className="form-control" value={dataForm.miejsce_praktyk} onChange={handleInputChange} name="dat_start" placeholder="dat_start"/>
+                    </div>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="telefon" className="form-label">data_kon</label>
+                        <input type="date" className="form-control" value={dataForm.data_kon} onChange={handleInputChange} name="data_kon" placeholder="data_kon"/>
                     </div>
                 </div>
             </div>
