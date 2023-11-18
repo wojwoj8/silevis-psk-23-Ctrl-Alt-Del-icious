@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-
+import LanguageContext from '../context/LanguageContext'
 
 
 export default function Header() {
-  const [language, setLanguage] = useState('pl');
+  const {language, changeLanguage} = useContext(LanguageContext)
   const [userData, setUserData] = useState()
   const userDataCookie = Cookies.get('userData');
   let userDataJson
@@ -37,7 +37,7 @@ export default function Header() {
         <ul className="navbar-nav me-auto mb-2 mb-lg-0"> </ul>
 
         <div className="vr text-white "></div>
-        <div className="d-flex mx-3 text-white"><button onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>language: {language}</button></div>
+        <div className="d-flex mx-3 text-white"><button onClick={changeLanguage}>language: {language}</button></div>
         <div className="vr text-white"></div>
         
         <div className="vr text-white"></div>
