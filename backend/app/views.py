@@ -9,7 +9,7 @@ from rest_framework import (
     permissions,
 )
 from .serializer import (
-    Attatchment1Serializer,
+    Attachment1Serializer,
     AdminDataSerializer
 )
 from .models import (
@@ -28,7 +28,7 @@ class TestView(generics.GenericAPIView,
     mixins.DestroyModelMixin,
     ):
     
-    serializer_class = Attatchment1Serializer
+    serializer_class = Attachment1Serializer
 
     def get(self, request, *args, **kwargs):
         
@@ -89,4 +89,27 @@ class AdminDataView(generics.GenericAPIView,
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
+        return Response(serializer.errors, status=400)
+    
+class UserPanelView(generics.GenericAPIView,
+                    mixins.ListModelMixin,
+                    mixins.CreateModelMixin,
+                    mixins.UpdateModelMixin,
+                    mixins.DestroyModelMixin):
+    
+    serializer_class = Attachment1Serializer
+    queryset = Attachment1.objects.all()  # Add this line to get all instances
+
+    def get(self, request, *args, **kwargs):
+        attachments = self.get_queryset()  # Use get_queryset() to get all instances
+        serializer = self.serializer_class(attachments, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request, *args, **kwargs):
+        print(request.data)
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        print(serializer.errors)
         return Response(serializer.errors, status=400)

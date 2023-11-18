@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
 
-const AdminComponent = () =>{
+const AdminAtt1 = () =>{
 
     const handleInputChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -48,7 +47,7 @@ const AdminComponent = () =>{
     const getData = async () =>{
         
         try{
-            const response = await axios.get('/backend/adminview/',  {
+            const response = await axios.get('/backend/userpanel/',  {
                 headers: {
                     'accept': 'application/json',
                   },
@@ -102,7 +101,6 @@ const AdminComponent = () =>{
         const fetchData = async () =>{
             await getData()
 
-           
         }
         fetchData()
     },[])
@@ -113,23 +111,8 @@ const AdminComponent = () =>{
 
 
         <div className='container'>
-            <div>
-                <Link to='/adminatt1'>Attachment1</Link>
-            </div>
-            <div className='row'>
-                <div className="mb-3 col-md-4">
-                    <label htmlFor="start_praktyk" className="form-label">Start Praktyk</label>
-                    <input type="date" className="form-control" value={adminData?.start_praktyk} onChange={handleInputChange} name="start_praktyk"/>
-                </div>
-                <div className="mb-3 col-md-4">
-                    <label htmlFor="dziekan_wydzialu" className="form-label">Dziekan Wydziału</label>
-                    <input type="text" className="form-control" value={adminData?.dziekan_wydzialu} onChange={handleInputChange} name="dziekan_wydzialu" placeholder="Dziekan Wydziału"/>
-                </div>
-                <div className="mb-3 col-md-4">
-                    <label htmlFor="koniec_praktyk" className="form-label">Koniec Praktyk</label>
-                    <input type="date" className="form-control" value={adminData?.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk"/>
-                </div>
-            </div>
+
+            
 
             <button className='btn btn-primary' onClick={getData}>get data</button>
             <button className='btn btn-danger'  onClick={editData}>edit data</button>
@@ -137,4 +120,4 @@ const AdminComponent = () =>{
         </div>
     )
 }
-export default AdminComponent;
+export default AdminAtt1;

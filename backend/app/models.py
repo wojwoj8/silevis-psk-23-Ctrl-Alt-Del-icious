@@ -55,6 +55,17 @@ class Attachment1(models.Model):
     kontakt2_imie = models.CharField(max_length=100) 
     kontakt2_tel = models.CharField(max_length=100) 
     kontakt2_email = models.CharField(max_length=100)
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('accepted', 'Accepted'),
+        ('denied', 'Denied'),
+    ]
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='pending'
+    )
     
 
     # def __str__(self):
