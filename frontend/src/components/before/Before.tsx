@@ -16,7 +16,9 @@ export default function Before(){
                         <p className="card-text">Wygeneruj swoje pdf do wydrukowania
                             <ul className="text-left">
                                 <li><Link className="no-underline text-lg onhoverorangetext" to='/umowapdf'>Umowa o organizację praktyki studenta Politechniki Świętokrzyskiej – załącznik nr 1</Link></li>
-                                <li><Link className="no-underline text-lg text-size onhoverorangetext" to='/podanie'>Zgoda na realizację czterotygodniowej praktyki studenckiej – załącznik nr 5</Link></li>
+                                <li><Link className="no-underline text-lg onhoverorangetext" to='/podanie'>Zgoda na realizację czterotygodniowej praktyki studenckiej – załącznik nr 5</Link></li>
+                                <li><Link className="no-underline text-lg onhoverorangetext" to='/oswiadczenie'>Oświadczenie o znajomości zasad odbywania praktyki – załącznik nr 2</Link></li>
+
                             </ul>
                         </p>
                     </div>

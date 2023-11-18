@@ -30,4 +30,11 @@ interface PodanieInterface{
   kierunek:string;
 }
 
-  export type{FormData,PodanieInterface}
+interface OswiadczenieInterface{
+  imie_nazwisko: string;
+  adres:string;
+  nr_albumu: string;
+  kierunek:string;
+}
+
+  export type{FormData,PodanieInterface,OswiadczenieInterface}
