@@ -144,15 +144,15 @@ const AdminComponent = () =>{
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="start_praktyk" className="form-label">Start Praktyk</label>
+                    <label htmlFor="start_praktyk" className="form-label">Start Praktyk *</label>
                     <input type="date" className="form-control" value={adminData?.start_praktyk} onChange={handleInputChange} name="start_praktyk"/>
                 </div>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="dziekan_wydzialu" className="form-label">Dziekan Wydziału</label>
+                    <label htmlFor="dziekan_wydzialu" className="form-label">Dziekan Wydziału *</label>
                     <input type="text" className="form-control" value={adminData?.dziekan_wydzialu} onChange={handleInputChange} name="dziekan_wydzialu" placeholder="Dziekan Wydziału"/>
                 </div>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="koniec_praktyk" className="form-label">Koniec Praktyk</label>
+                    <label htmlFor="koniec_praktyk" className="form-label">Koniec Praktyk *</label>
                     <input type="date" className="form-control" value={adminData?.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk"/>
                 </div>
             </div>
