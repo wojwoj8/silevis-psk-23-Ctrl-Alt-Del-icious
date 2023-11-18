@@ -8,6 +8,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HubComponent from './components/HubComponent.tsx'
 import Before from './components/before/Before.tsx'
+import AdminComponent from './components/AdminComponent.tsx'
+
 
 const router = createBrowserRouter([{
   path: "/",
@@ -21,14 +23,6 @@ const router = createBrowserRouter([{
       path: "/form",
       element: <FormComponent/>,
     },
-    {
-      path: "/przed",
-      element: <Before/>
-    },
-    {
-      path:"/umowapdf",
-      element: <FormComponent/>
-    }
   ]
 },])
 
