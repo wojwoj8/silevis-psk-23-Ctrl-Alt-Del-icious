@@ -22,6 +22,18 @@ class AdminData(models.Model):
     dziekan_wydzialu = models.CharField(max_length=255)
     start_praktyk = models.DateField()
     koniec_praktyk = models.DateField()
+
+    def save(self, *args, **kwargs):
+        # Set id to 1 and save only if there is no existing instance with id 1
+        if not self.pk and not AdminData.objects.filter(pk=1).exists():
+            self.pk = 1
+            super().save(*args, **kwargs)
+        elif self.pk == 1:
+            # Update the existing instance with id 1
+            super().save(*args, **kwargs)
+        else:
+            # Do not save if there is already an instance with id other than 1
+            raise ValueError("There can be only one instance with id 1.")
     
 class Attachment1(models.Model):
     zawarcie_umowy = models.DateField()

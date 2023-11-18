@@ -60,10 +60,33 @@ class AdminDataView(generics.GenericAPIView,
         return Response(serializer.data)
     
     def post(self, request, *args, **kwargs):
-        print(request.data)
+        
+        existing_instance = AdminData.objects.exists()
+
+        if existing_instance:
+            return Response({"error": "Data already exists. Cannot create a new instance."},
+                            status=status.HTTP_400_BAD_REQUEST)
+
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def put(self, request, *args, **kwargs):
+        
+        try:
+            instance = get_object_or_404(AdminData, id=1)
+
+        except self.serializer_class.Meta.model.DoesNotExist:
+            return Response(
+                {"error": f"{self.serializer_class.Meta.model.__name__} not found"},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        serializer = self.serializer_class(instance, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
             return Response(serializer.data)
-        print(serializer.errors)
         return Response(serializer.errors, status=400)

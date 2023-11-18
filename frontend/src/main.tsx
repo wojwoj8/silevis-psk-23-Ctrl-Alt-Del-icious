@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HubComponent from './components/HubComponent.tsx'
 import AdminComponent from './components/AdminComponent.tsx'
 
+
 const router = createBrowserRouter([{
   path: "/",
   element: <App/>,
@@ -20,10 +21,6 @@ const router = createBrowserRouter([{
     {
       path: "/form",
       element: <FormComponent/>,
-    },
-    {
-      path:"/doc1",
-      element: <Doc1/>
     },
     {
       path:"/adminview",

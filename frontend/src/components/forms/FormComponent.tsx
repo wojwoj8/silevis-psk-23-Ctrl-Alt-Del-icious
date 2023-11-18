@@ -20,7 +20,9 @@ const FormComponent = () =>{
 
     const [userData, setUserData] = useState()
     const [docData, setDocData] = useState()
+    const [defaultData, setDefaultData] = useState()
     const [formData, setFormData] = useState<FormData>({
+
         zawarcie_umowy: "",
         dziekan_wydzialu: "",
         miasto: "",
@@ -74,6 +76,23 @@ const FormComponent = () =>{
             console.log(error);
           }
     }
+
+    const getDefaultData = async () =>{
+        
+        try{
+            const response = await axios.get(`/backend/adminview/`,  {
+                headers: {
+                    'accept': 'application/json',
+                  },
+              });
+              
+           console.log(response.data)
+           setDefaultData(response.data)
+        }catch (error: any) {
+          
+            console.log(error);
+          }
+    }
     const postData = async () =>{
         
         try{
@@ -95,6 +114,7 @@ const FormComponent = () =>{
     useEffect(()=>{
         const fetchData = async () =>{
             await getEmailData()
+            await getDefaultData()
         }
         fetchData()
     },[])

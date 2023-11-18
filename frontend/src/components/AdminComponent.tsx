@@ -8,14 +8,15 @@ const AdminComponent = () =>{
       ) => {
         const { name, value } = event.target;
         console.log(name)
-        setFormData((prevFormData) => ({
-        ...prevFormData!,
+        setAdminData((prevData) => ({
+        ...prevData!,
         [name]: value,
         }));
 
       };
 
       const [adminData, setAdminData] = useState({
+        id: "",
         start_praktyk: "",
         koniec_praktyk: "",
         dziekan_wydzialu: "",
@@ -46,7 +47,7 @@ const AdminComponent = () =>{
     const getData = async () =>{
         
         try{
-            const response = await axios.get('/backend/testview/',  {
+            const response = await axios.get('/backend/adminview/',  {
                 headers: {
                     'accept': 'application/json',
                   },
@@ -60,26 +61,10 @@ const AdminComponent = () =>{
           }
     }
 
-    const getEmailData = async () =>{
-        
-        try{
-            const response = await axios.get(`/api/user/s011111@student.tu.kielce.pl`,  {
-                headers: {
-                    'accept': 'application/json',
-                  },
-              });
-              
-           console.log(response.data)
-        //    setUserData(response.data)
-        }catch (error: any) {
-          
-            console.log(error);
-          }
-    }
     const postData = async () =>{
         
         try{
-            const response = await axios.post(`/backend/testview/`, formData,  {
+            const response = await axios.post(`/backend/adminview/`, adminData,  {
                 headers: {
                     'accept': 'application/json',
                   },
@@ -92,6 +77,24 @@ const AdminComponent = () =>{
             console.log(error);
           }
     }
+
+    const editData = async () =>{
+        
+        try{
+            const response = await axios.put(`/backend/adminview/`, adminData,  {
+                headers: {
+                    'accept': 'application/json',
+                  },
+              });
+              
+           console.log(response.data)
+        //    setUserData(response.data)
+        }catch (error: any) {
+          
+            console.log(error);
+          }
+    }
+    
 
 
     useEffect(()=>{
@@ -114,9 +117,27 @@ const AdminComponent = () =>{
     // }, [userData]);
      
     return(
+
+
         <div className='container'>
+
+            <div className='row'>
+                <div className="mb-3 col-md-4">
+                    <label htmlFor="start_praktyk" className="form-label">Start Praktyk</label>
+                    <input type="date" className="form-control" value={adminData?.start_praktyk} onChange={handleInputChange} name="start_praktyk"/>
+                </div>
+                <div className="mb-3 col-md-4">
+                    <label htmlFor="dziekan_wydzialu" className="form-label">Dziekan Wydziału</label>
+                    <input type="text" className="form-control" value={adminData?.dziekan_wydzialu} onChange={handleInputChange} name="dziekan_wydzialu" placeholder="Dziekan Wydziału"/>
+                </div>
+                <div className="mb-3 col-md-4">
+                    <label htmlFor="koniec_praktyk" className="form-label">Koniec Praktyk</label>
+                    <input type="date" className="form-control" value={adminData?.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk"/>
+                </div>
+            </div>
+
             <button className='btn btn-primary' onClick={getData}>get data</button>
-            <button className='btn btn-danger'  onClick={getEmailData}>get data</button>
+            <button className='btn btn-danger'  onClick={editData}>edit data</button>
             <button className='btn btn-danger' onClick={postData}>post data</button>
         </div>
     )
