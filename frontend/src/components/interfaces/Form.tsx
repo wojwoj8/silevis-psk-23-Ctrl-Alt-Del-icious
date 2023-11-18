@@ -21,4 +21,13 @@ interface FormData {
     status: string;
   }
 
-  export type{FormData}
+
+interface PodanieInterface{
+  imie_nazwisko: string;
+  pesel: string;
+  adres:string;
+  telefon:string;
+  kierunek:string;
+}
+
+  export type{FormData,PodanieInterface}
