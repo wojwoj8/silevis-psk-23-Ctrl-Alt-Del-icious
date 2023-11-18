@@ -92,7 +92,8 @@ const AdminAtt1 = () =>{
                             .map((item, index) => (
                                 <Att1Item key={index} data={item} defaultData={defaultData} />
                             ))
-                            }                           </div>
+                            }                          
+                        </div>
                     </div>
                 </div>
 
@@ -105,7 +106,8 @@ const AdminAtt1 = () =>{
                             .map((item, index) => (
                                 <Att1Item key={index} data={item} defaultData={defaultData} />
                             ))
-                            }                           </div>
+                            }                           
+                        </div>
                     </div>
                 </div>
             </div>
