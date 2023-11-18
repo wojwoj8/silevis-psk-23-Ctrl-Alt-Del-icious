@@ -1,25 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios, { AxiosError } from 'axios';
-interface FormData {
-    zawarcie_umowy: string;
-    dziekan_wydzialu: string;
-    miasto: string;
-    ulica: string;
-    krs: string;
-    nip: string;
-    regon: string;
-    reprezentant_zakladu: string;
-    student: string;
-    nr_albumu: string;
-    start_praktyk: string;
-    koniec_praktyk: string;
-    kontakt1_imie: string;
-    kontakt1_tel: string;
-    kontakt1_email: string;
-    kontakt2_imie: string;
-    kontakt2_tel: string;
-    kontakt2_email: string;
-  }
+import Doc1v1 from '../pdf/Doc1v1';
+import Doc1v2 from '../pdf/Doc1v2';
+import { FormData } from '../interfaces/Form';
 
 const FormComponent = () =>{
 
@@ -37,7 +20,7 @@ const FormComponent = () =>{
 
     const [userData, setUserData] = useState()
     const [docData, setDocData] = useState()
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         zawarcie_umowy: "",
         dziekan_wydzialu: "",
         miasto: "",
@@ -116,6 +99,7 @@ const FormComponent = () =>{
     },[])
      
     return(
+        <div>
         <div className='container'>
             <button className='btn btn-primary' onClick={getData}>get data</button>
             <button className='btn btn-danger'  onClick={getEmailData}>get data</button>
@@ -126,7 +110,7 @@ const FormComponent = () =>{
                     <input type="date" className="form-control" value={formData?.zawarcie_umowy} onChange={handleInputChange} name="zawarcie_umowy"/>
                 </div>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="dziekan_wydzialu" name='dziekan_wydzialu' className="form-label">Dziekan Wydziału</label>
+                    <label htmlFor="dziekan_wydzialu" className="form-label">Dziekan Wydziału</label>
                     <input type="text" className="form-control" value={formData?.dziekan_wydzialu} onChange={handleInputChange} name="dziekan_wydzialu" placeholder="Dziekan Wydziału"/>
                 </div>
                 <div className="mb-3 col-md-4">
@@ -205,6 +189,12 @@ const FormComponent = () =>{
                 </div>
             </div>
             <button className='btn btn-danger' onClick={postData}>post data</button>
+            
+        </div>
+        <div className="flex gap-5 justify-center">
+                <Doc1v1 data={formData}/>
+                <Doc1v2 data={formData}/>
+            </div>
         </div>
     )
 }

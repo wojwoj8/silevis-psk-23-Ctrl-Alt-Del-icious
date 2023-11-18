@@ -1,6 +1,8 @@
-export default function Doc1v2(){
+import { FormData } from "../interfaces/Form";
+
+export default function Doc1v2({data}:{data:FormData}){
     return(
-        <div className="page">
+        <div className=" my-10 page shadow-2xl">
             <div className="mx-10 mt-20">
                 <span>§ 5. 1. Strony wyznaczają osoby właściwe do kontaktu w bieżących sprawach:</span><br></br>
                 <span>1) z ramienia Zakładu Pracy …………………………………………………………………</span><br></br>
@@ -35,6 +37,7 @@ export default function Doc1v2(){
                     <span className="text-sm"><b>Podpis i pieczęć</b></span>
                 </div>
             </div>
+            <span className="block text-center mt-44">Strona 2 z 2</span>
         </div>
     );
 }
