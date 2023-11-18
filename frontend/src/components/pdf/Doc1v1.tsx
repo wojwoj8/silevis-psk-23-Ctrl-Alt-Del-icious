@@ -1,15 +1,19 @@
 import { FormData } from "../interfaces/Form"
+import LanguageContext from '../../context/LanguageContext'
+import {useContext } from 'react';
 
-export default function Doc1v1({data, lang}:{data:FormData, lang:string}){
+export default function Doc1v1({data}:{data:FormData}){
+    const {language} = useContext(LanguageContext)
+
     const empty = "........................................"
     const short_empty = "..................."
     return(
-    <div id="page1" className="shrink-0	mx-10 my-10 page shadow-2xl">
+    <div id="page1" className="shrink-0	mx-10 my-10 page shadow-2xl font-serif">
         <div className=" mt-10 mx-10 flex flex-col items-end gap-0">
             <span className="font-bold text-xs ">Załącznik nr 1 do Zarządzenia Nr 54/19</span>
             <span className="font-bold text-xs ">Rektora Politechniki Świętokrzyskiej z dnia 20 września 2019 r.</span>
         </div>
-        <h1 className="mt-10 mb-10 text-center text-3xl">{lang=='pl'?'Umowa o organizację praktyki studenta Politechniki Świętokrzyskiej':'Internship contract for a student of the Kielce University of Technology'}</h1>
+        <h1 className="mt-10 mb-10 text-center text-3xl">{language=='pl'?'Umowa o organizację praktyki studenta Politechniki Świętokrzyskiej':'Internship contract for a student of the Kielce University of Technology'}</h1>
         <div>
             <span className="mx-10">zawarta w dniu {data.zawarcie_umowy?data.zawarcie_umowy:empty} r. pomiędzy:</span><br></br>
             <span className="mx-10">Politechniką Świętokrzyską al. Tysiąclecia Państwa Polskiego 7, 25-314 Kielce,</span><br></br>

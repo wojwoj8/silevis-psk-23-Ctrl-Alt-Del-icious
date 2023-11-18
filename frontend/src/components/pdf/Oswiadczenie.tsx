@@ -3,8 +3,8 @@ import { OswiadczenieInterface } from "../interfaces/Form";
 export default function Oswiadczenie({data}:{data:OswiadczenieInterface}){
     const empty = ".............................................."
     return(
-    <div id="page1">
-        <div className="flex justify-between mx-20 pt-20">
+    <div id="page1" className="font-serif">
+        <div className="font-serif flex justify-between mx-20 pt-20">
             <div>
                 <span>{data.imie_nazwisko?data.imie_nazwisko:empty}</span><br></br>
                 <span>Imię i Nazwisko studenta</span><br></br>
@@ -28,7 +28,7 @@ export default function Oswiadczenie({data}:{data:OswiadczenieInterface}){
             </div>
         </div>
         <div>
-            <h5 className="text-center">Oświadczenie o znajomości zasad odbywania praktyki</h5><br></br>
+            <h5 className="text-center"><b>Oświadczenie o znajomości zasad odbywania praktyki</b></h5><br></br>
             <span className="mx-20">Oświadczam, że zapoznałem się z Regulaminem Praktyk Zawodowych w Politechnice</span><br></br>
             <span className="mx-20">Świętokrzyskiej oraz z niżej przedstawionymi warunkami praktyki studenckiej </span><br></br>
             <span className="mx-20">i zobowiązuję się do ich przestrzegania.</span><br></br><br></br>
