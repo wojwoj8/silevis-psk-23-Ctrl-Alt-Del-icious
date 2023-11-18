@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
 
-const AdminComponent = () =>{
+const UserPanel = () =>{
 
     const handleInputChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -48,14 +47,14 @@ const AdminComponent = () =>{
     const getData = async () =>{
         
         try{
-            const response = await axios.get('/backend/adminview/',  {
+            const response = await axios.get('/backend/userpanel/',  {
                 headers: {
                     'accept': 'application/json',
                   },
               });
               
            console.log(response.data)
-           setAdminData(response.data)
+        //    setAdminData(response.data)
         }catch (error: any) {
           
             console.log(error);
@@ -113,9 +112,7 @@ const AdminComponent = () =>{
 
 
         <div className='container'>
-            <div>
-                <Link to='/adminatt1'>Attachment1</Link>
-            </div>
+
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="start_praktyk" className="form-label">Start Praktyk</label>
@@ -137,4 +134,4 @@ const AdminComponent = () =>{
         </div>
     )
 }
-export default AdminComponent;
+export default UserPanel;
