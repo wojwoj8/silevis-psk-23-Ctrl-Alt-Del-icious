@@ -80,7 +80,7 @@ const UserPanel = () =>{
      
     return(
         <div className='container'>
-            <button className='btn btn-primary' onClick={getData}>get data</button>
+            {/* <button className='btn btn-primary' onClick={getData}>get data</button> */}
             <div className="row row-cols-1 row-cols-md-3 g-4 p-5 ">
                 <div className="col text-decoration-none">
                     <div className="card h-100 text-center">

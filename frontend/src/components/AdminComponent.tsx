@@ -139,6 +139,7 @@ const AdminComponent = () =>{
 
         <div className='container'>
             <div>
+                Dane wysłane przez sudentów
                 <Link to='/adminatt1'>Attachment1</Link>
             </div>
             <div className='row'>
