@@ -11,7 +11,9 @@ const Att1Item = ({data}) =>{
         <div className='container'>
 
             <Link to={`/umowapdf/${data.id}`}>
-                <div className='border border-black'>{data.id}</div>
+            <div className={`border border-black ${data.status === 'accepted' ? 'bg-success' : data.status === 'denied' ? 'bg-danger' : data.status === 'pending' ? 'bg-primary' : ''}`}>
+            {data.id}
+            </div>
             </Link>
 
         </div>
