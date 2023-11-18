@@ -221,10 +221,10 @@ const FormComponent = () =>{
     return(
         <div>
         <div className='container'>
-            <button className='btn btn-primary' onClick={getData}>get data</button>
-            <button className='btn btn-danger'  onClick={getEmailData}>get data</button>
-            <button className='btn btn-primary' onClick={downloadPDF}>Download PDF</button>
-            <button className='btn btn-primary' onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>Change language: {language}</button>
+            <div className='d-flex justify-content-center'>
+                <button className='btn btn-primary' onClick={downloadPDF}>Download PDF</button>
+                <button className='btn btn-primary' onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>Change language: {language}</button>
+            </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="zawarcie_umowy" className="form-label">Zawarcie Umowy</label>
