@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
+
 
 export default function Header() {
+  const [language, setLanguage] = useState('pl');
 
   return (
   <nav className="navbar navbar-expand-lg orange5">
@@ -13,7 +16,7 @@ export default function Header() {
         <ul className="navbar-nav me-auto mb-2 mb-lg-0"> </ul>
 
         <div className="vr text-white "></div>
-        <div className="d-flex mx-3 text-white">Lang</div>
+        <div className="d-flex mx-3 text-white"><button onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>language: {language}</button></div>
         <div className="vr text-white"></div>
         <div className="d-flex mx-3 text-white">User</div>
         <div className="vr text-white"></div>
