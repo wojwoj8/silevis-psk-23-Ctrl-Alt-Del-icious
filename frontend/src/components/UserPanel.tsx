@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios, { AxiosError } from 'axios';
+import Att1Item from './Att1Item';
 
 const UserPanel = () =>{
 
@@ -15,80 +16,37 @@ const UserPanel = () =>{
 
       };
 
-      const [adminData, setAdminData] = useState({
-        id: "",
-        start_praktyk: "",
-        koniec_praktyk: "",
-        dziekan_wydzialu: "",
-        
-    })
-    const [docData, setDocData] = useState()
-    const [formData, setFormData] = useState({
-        
-        zawarcie_umowy: "",
-        dziekan_wydzialu: "",
-        miasto: "",
-        ulica: "",
-        krs: "",
-        nip: "",
-        regon: "",
-        reprezentant_zakladu: "",
-        student: "",
-        nr_albumu: "",
-        start_praktyk: "",
-        koniec_praktyk: "",
-        kontakt1_imie: "",
-        kontakt1_tel: "",
-        kontakt1_email: "",
-        kontakt2_imie: "",
-        kontakt2_tel: "",
-        kontakt2_email: ""
-      });
+    const [listData, setListData] = useState([])
+    const [defaultData, setDefaultData] = useState()
+    
     const getData = async () =>{
         
         try{
-            const response = await axios.get('/backend/userpanel/',  {
+            const response = await axios.get('/backend/userpanel/11111',  {
                 headers: {
                     'accept': 'application/json',
                   },
               });
               
            console.log(response.data)
-        //    setAdminData(response.data)
+           setListData(response.data)
         }catch (error: any) {
           
             console.log(error);
           }
     }
 
-    const postData = async () =>{
+    const getDefaultData = async () =>{
         
         try{
-            const response = await axios.post(`/backend/adminview/`, adminData,  {
+            const response = await axios.get(`/backend/adminview/`,  {
                 headers: {
                     'accept': 'application/json',
                   },
               });
               
            console.log(response.data)
-        //    setUserData(response.data)
-        }catch (error: any) {
-          
-            console.log(error);
-          }
-    }
-
-    const editData = async () =>{
-        
-        try{
-            const response = await axios.put(`/backend/adminview/`, adminData,  {
-                headers: {
-                    'accept': 'application/json',
-                  },
-              });
-              
-           console.log(response.data)
-        //    setUserData(response.data)
+           setDefaultData(response.data)
         }catch (error: any) {
           
             console.log(error);
@@ -100,37 +58,67 @@ const UserPanel = () =>{
     useEffect(()=>{
         const fetchData = async () =>{
             await getData()
+            await getDefaultData()
 
-           
         }
         fetchData()
     },[])
 
- 
+    
      
     return(
-
-
         <div className='container'>
+            <button className='btn btn-primary' onClick={getData}>get data</button>
+            <div className="row row-cols-1 row-cols-md-3 g-4 p-5 ">
+                <div className="col text-decoration-none">
+                    <div className="card h-100 text-center">
+                        <div className="card-body ">
+                            <h5 className="card-title">Zatwierdzone wnioski</h5>
+                            {listData
+                            .filter(item => item.status === 'accepted')
+                            .map((item, index) => (
+                                <Att1Item key={index} data={item} defaultData={defaultData} />
+                            ))
+                            }                        
+                        </div>
+                    </div>
+                </div>
 
-            <div className='row'>
-                <div className="mb-3 col-md-4">
-                    <label htmlFor="start_praktyk" className="form-label">Start Praktyk</label>
-                    <input type="date" className="form-control" value={adminData?.start_praktyk} onChange={handleInputChange} name="start_praktyk"/>
+                <div className="col text-decoration-none">
+                    <div className="card h-100 text-center">
+                        <div className="card-body ">
+                            <h5 className="card-title">Oczekujace wnioski</h5>
+                            {listData
+                            .filter(item => item.status === 'pending')
+                            .map((item, index) => (
+                                <Att1Item key={index} data={item} defaultData={defaultData} />
+                            ))
+                            }                          
+                        </div>
+                    </div>
                 </div>
-                <div className="mb-3 col-md-4">
-                    <label htmlFor="dziekan_wydzialu" className="form-label">Dziekan Wydziału</label>
-                    <input type="text" className="form-control" value={adminData?.dziekan_wydzialu} onChange={handleInputChange} name="dziekan_wydzialu" placeholder="Dziekan Wydziału"/>
-                </div>
-                <div className="mb-3 col-md-4">
-                    <label htmlFor="koniec_praktyk" className="form-label">Koniec Praktyk</label>
-                    <input type="date" className="form-control" value={adminData?.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk"/>
+
+                <div className="col text-decoration-none">
+                    <div className="card h-100 text-center">
+                        <div className="card-body ">
+                            <h5 className="card-title">Odrzucone wnioski</h5>
+                            {listData
+                            .filter(item => item.status === 'denied')
+                            .map((item, index) => (
+                                <Att1Item key={index} data={item} defaultData={defaultData} />
+                            ))
+                            }                           
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <button className='btn btn-primary' onClick={getData}>get data</button>
-            <button className='btn btn-danger'  onClick={editData}>edit data</button>
-            <button className='btn btn-danger' onClick={postData}>post data</button>
+
+
+
+
+
+            
         </div>
     )
 }

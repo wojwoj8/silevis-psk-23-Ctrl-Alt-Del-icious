@@ -133,10 +133,18 @@ class UserPanelView(generics.GenericAPIView,
     queryset = Attachment1.objects.all()  # Add this line to get all instances
 
     def get(self, request, *args, **kwargs):
-        attachments = self.get_queryset()  # Use get_queryset() to get all instances
-        serializer = self.serializer_class(attachments, many=True)
-        return Response(serializer.data)
-    
+       
+        if 'nr_albumu' in kwargs:
+            nr_albumu = kwargs.get('nr_albumu')
+            print(nr_albumu)
+            attachments = self.get_queryset().filter(nr_albumu=nr_albumu)
+            serializer = self.serializer_class(attachments, many=True)
+            return Response(serializer.data)
+        else:
+            attachments = self.get_queryset()  # Use get_queryset() to get all instances
+            serializer = self.serializer_class(attachments, many=True)
+            return Response(serializer.data)
+        
     def post(self, request, *args, **kwargs):
         print(request.data)
         serializer = self.serializer_class(data=request.data)
