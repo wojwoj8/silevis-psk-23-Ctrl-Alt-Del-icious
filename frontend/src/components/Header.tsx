@@ -15,7 +15,7 @@ export default function Header() {
         <div className="vr text-white "></div>
         <div className="d-flex mx-3 text-white">Lang</div>
         <div className="vr text-white"></div>
-        <div className="d-flex mx-3 text-white">User</div>
+        <Link to="/userpanel" className="d-flex mx-3 text-white">User</Link>
         <div className="vr text-white"></div>
         <Link to="/admin" className="d-flex mx-3 text-white">Admin</Link>
         <div className="vr text-white me-5"></div>
