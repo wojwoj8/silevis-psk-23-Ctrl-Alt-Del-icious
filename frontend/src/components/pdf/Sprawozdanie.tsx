@@ -4,19 +4,19 @@ export default function Sprawozdanie({data}:{data:SprawozdanieInterface}){
     return(
     <div id="page1" className="pt-5">
         <h2 className="text-center">SPRAWOZDANIE Z PRAKTYKI STUDENCKIEJ</h2>
-        <div className="flex justify-content-start mx-20 pt-20">
-            <div>
-                <span>{data.student?data.student:empty}</span><br></br>
-                <span>Imię i Nazwisko studenta</span><br></br>
+        <div className="flex justify-content-center mx-20 pt-20">
+            <div className="shrink-0">
+                <span>{data.student&&data.nr_albumu?data.student+"  "+data.nr_albumu:empty}</span><br></br>
+                <span>Imię i Nazwisko studenta, nr albumu</span><br></br>
                 <span>{data.wydzial?data.wydzial:empty}</span><br></br>
                 <span>Wydział</span><br></br>
-                <span>{data.kierunek?data.kierunek:empty}</span><br></br>
-                <span>Kierunek studiów</span><br></br>
+                <span>{data.kierunek&&data.forma?data.kierunek+"  "+data.forma:empty}</span><br></br>
+                <span>Kierunek i forma studiów</span><br></br>
                 <span>{data.rok_studiow?data.rok_studiow:empty}</span><br></br>
                 <span>Rok studiów</span><br></br>
                 <span>{data.zaklad_pracy?data.zaklad_pracy:empty}</span><br></br>
                 <span>Miejsce zrealizowanej praktyki</span><br></br>
-                <span>{data.start_praktyk?data.start_praktyk:empty}</span><br></br>
+                <span>{data.start_praktyk&&data.koniec_praktyk?data.start_praktyk+"   "+data.koniec_praktyk:empty}</span><br></br>
                 <span>Termin realizowanej praktyki</span><br></br>
             </div>
         </div>
