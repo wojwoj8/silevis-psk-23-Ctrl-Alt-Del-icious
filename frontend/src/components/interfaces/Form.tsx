@@ -45,12 +45,16 @@ interface OswiadczenieInterface{
 }
 
 interface SprawozdanieInterface{
-  imie_nazwisko: string;
+  student: string;
+  nr_albumu:string;
   wydzial:string;
   kierunek:string;
-  rok:string;
+  forma:string;
+  rok_studiow:string;
   zaklad_pracy:string;
-  zawarcie_umowy:string;
+  start_praktyk:string;
+  koniec_praktyk:string;
+  sprawozdanie:string;
 }
 
-  export type{FormData,PodanieInterface,OswiadczenieInterface,SprawozdanieInterface}
+export type{FormData,PodanieInterface,OswiadczenieInterface,SprawozdanieInterface}
