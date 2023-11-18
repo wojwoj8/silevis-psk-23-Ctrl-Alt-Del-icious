@@ -1,3 +1,3 @@
-extends default function PoPraktyce(){
+export default function PoPraktyce(){
     return<>Po</>
 }

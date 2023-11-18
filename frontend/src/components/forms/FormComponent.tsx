@@ -30,7 +30,6 @@ const FormComponent = () =>{
     const [docData, setDocData] = useState()
     const [defaultData, setDefaultData] = useState()
     const [formData, setFormData] = useState<FormData>({
-
         zawarcie_umowy: currentDate,
         dziekan_wydzialu: "",
         miasto: "",
@@ -52,6 +51,29 @@ const FormComponent = () =>{
         kontakt2_email: "",
         status: ""
       });
+      const [error, setError] = useState({
+        zawarcie_umowy: [],
+        dziekan_wydzialu: [],
+        miasto: [],
+        ulica: [],
+        krs: [],
+        nip: [],
+        regon: [],
+        reprezentant_zakladu: [],
+        zaklad_pracy: [],
+        student: [],
+        nr_albumu: [],
+        start_praktyk: [],
+        koniec_praktyk: [],
+        kontakt1_imie: [],
+        kontakt1_tel: [],
+        kontakt1_email: [],
+        kontakt2_imie: [],
+        kontakt2_tel: [],
+        kontakt2_email: [],
+        status: []
+      })
+      const [errMes, setErrMes] = useState('')
     const { id } = useParams();
     const getData = async () =>{
         
@@ -105,21 +127,31 @@ const FormComponent = () =>{
             console.log(error);
           }
     }
+    
+
     const postData = async () =>{
+
+            try{
+                const response = await axios.post(`/backend/testview/`, formData,  {
+                    headers: {
+                        'accept': 'application/json',
+                    },
+                });
+                
+            console.log(response.data)
+            //    setUserData(response.data)
+            }catch (error: any) {
+                if(axios.isAxiosError(error)){
+                    console.log(error);
+                    if(error.response?.status === 400){
+                        setErrMes('Te pola są wymagane')
+                        setError({...error.response?.data})
+                    }
+                }
+            }
         
-        try{
-            const response = await axios.post(`/backend/testview/`, formData,  {
-                headers: {
-                    'accept': 'application/json',
-                  },
-              });
-              
-           console.log(response.data)
-        //    setUserData(response.data)
-        }catch (error: any) {
-          
-            console.log(error);
-          }
+        
+        
     }
     const editData = async () =>{
         
@@ -224,25 +256,26 @@ const FormComponent = () =>{
             <div className='d-flex justify-content-center'>
                 <button className='btn btn-primary' onClick={downloadPDF}>Download PDF</button>
                 <button className='btn btn-primary' onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>Change language: {language}</button>
+            {errMes?errMes:''}
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="zawarcie_umowy" className="form-label">Zawarcie Umowy</label>
-                    <input type="date" className="form-control" value={formData?.zawarcie_umowy} onChange={handleInputChange} name="zawarcie_umowy"/>
+                    <input type="date" className={error.zawarcie_umowy?"form-contro border border-danger":"form-control"} value={formData?.zawarcie_umowy} onChange={handleInputChange} name="zawarcie_umowy"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="dziekan_wydzialu" className="form-label">Dziekan Wydziału</label>
-                    <input type="text" className="form-control" value={formData?.dziekan_wydzialu} onChange={handleInputChange} name="dziekan_wydzialu" placeholder="Dziekan Wydziału"/>
+                    <input type="text" className={error.dziekan_wydzialu? "form-contro border border-danger":"form-control"} value={formData?.dziekan_wydzialu} name="dziekan_wydzialu" placeholder="Dziekan Wydziału"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="miasto" className="form-label">Miasto</label>
-                    <input type="text" className="form-control" value={formData?.miasto} onChange={handleInputChange} name="miasto" placeholder="Miasto"/>
+                    <input type="text" className={error.miasto?"form-contro border border-danger":"form-control"} value={formData?.miasto} onChange={handleInputChange} name="miasto" placeholder="Miasto"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="ulica" className="form-label">Ulica</label>
-                    <input type="text" className="form-control" value={formData?.ulica} onChange={handleInputChange} name="ulica" placeholder="Ulica"></input>
+                    <input type="text" className={error.ulica?"form-contro border border-danger":"form-control"} value={formData?.ulica} onChange={handleInputChange} name="ulica" placeholder="Ulica"></input>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="krs" className="form-label">KRS</label>
@@ -260,57 +293,57 @@ const FormComponent = () =>{
                 </div>
                 <div className="mb-3 col-md-3">
                     <label htmlFor="reprezentant_zakladu" className="form-label">Reprezentant Zakładu</label>
-                    <input type="text" className="form-control" value={formData?.reprezentant_zakladu} onChange={handleInputChange} name="reprezentant_zakladu" placeholder="Reprezentant Zakładu"/>
+                    <input type="text" className={error.reprezentant_zakladu?"form-contro border border-danger":"form-control"} value={formData?.reprezentant_zakladu} onChange={handleInputChange} name="reprezentant_zakladu" placeholder="Reprezentant Zakładu"/>
                 </div>
                 <div className="mb-3 col-md-3">
                     <label htmlFor="zaklad_pracy" className="form-label">Zakład Pracy</label>
-                    <input type="text" className="form-control" value={formData?.zaklad_pracy} onChange={handleInputChange} name="zaklad_pracy" placeholder="Zakład Pracy"/>
+                    <input type="text" className={error.zaklad_pracy?"form-contro border border-danger":"form-control"} value={formData?.zaklad_pracy} onChange={handleInputChange} name="zaklad_pracy" placeholder="Zakład Pracy"/>
                 </div>
                 <div className="mb-3 col-md-3">
                     <label htmlFor="student" className="form-label">Student</label>
-                    <input type="text" className="form-control" value={formData?.student} onChange={handleInputChange} name="student" placeholder="Student"/>
+                    <input type="text" className={error.student?"form-contro border border-danger":"form-control"} value={formData?.student} name="student" placeholder="Student"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="nr_albumu" className="form-label">Nr Albumu</label>
-                    <input type="text" className="form-control" value={formData?.nr_albumu} onChange={handleInputChange} name="nr_albumu" placeholder="Nr Albumu"/>
+                    <input type="text" className={error.nr_albumu?"form-contro border border-danger":"form-control"} value={formData?.nr_albumu} name="nr_albumu" placeholder="Nr Albumu"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="start_praktyk" className="form-label">Start Praktyk</label>
-                    <input type="date" className="form-control" value={formData?.start_praktyk} onChange={handleInputChange} name="start_praktyk"/>
+                    <input type="date" className={error.start_praktyk?"form-contro border border-danger":"form-control"} value={formData?.start_praktyk} onChange={handleInputChange} name="start_praktyk"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="koniec_praktyk" className="form-label">Koniec Praktyk</label>
-                    <input type="date" className="form-control" value={formData?.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk"/>
+                    <input type="date" className={error.koniec_praktyk?"form-contro border border-danger":"form-control"} value={formData?.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt1_imie" className="form-label">Kontakt 1 Imię</label>
-                    <input type="text" className="form-control" value={formData?.kontakt1_imie} onChange={handleInputChange} name="kontakt1_imie" placeholder="Imię"/>
+                    <input type="text" className={error.kontakt1_imie?"form-contro border border-danger":"form-control"} value={formData?.kontakt1_imie} onChange={handleInputChange} name="kontakt1_imie" placeholder="Imię"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt1_tel" className="form-label">Kontakt 1 Telefon</label>
-                    <input type="tel" className="form-control" value={formData?.kontakt1_tel} onChange={handleInputChange} name="kontakt1_tel" placeholder="Telefon"/>
+                    <input type="tel" className={error.kontakt1_tel?"form-contro border border-danger":"form-control"} value={formData?.kontakt1_tel} onChange={handleInputChange} name="kontakt1_tel" placeholder="Telefon"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt1_email" className="form-label">Kontakt 1 Email</label>
-                    <input type="email" className="form-control" value={formData?.kontakt2_email} onChange={handleInputChange} name="kontakt1_email" placeholder="Email"/>
+                    <input type="email" className={error.kontakt2_email?"form-contro border border-danger":"form-control"} value={formData?.kontakt2_email} onChange={handleInputChange} name="kontakt1_email" placeholder="Email"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt2_imie" className="form-label">Kontakt 2 Imię</label>
-                    <input type="text" className="form-control" value={formData?.kontakt2_imie} onChange={handleInputChange} name="kontakt2_imie" placeholder="Imię"/>
+                    <input type="text" className={error.kontakt2_imie?"form-contro border border-danger":"form-control"} value={formData?.kontakt2_imie} onChange={handleInputChange} name="kontakt2_imie" placeholder="Imię"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt2_tel" className="form-label">Kontakt 2 Telefon</label>
-                    <input type="tel" className="form-control" value={formData?.kontakt2_tel} onChange={handleInputChange} name="kontakt2_tel" placeholder="Telefon"/>
+                    <input type="tel" className={error.kontakt2_tel?"form-contro border border-danger":"form-control"} value={formData?.kontakt2_tel} onChange={handleInputChange} name="kontakt2_tel" placeholder="Telefon"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt2_email" className="form-label">Kontakt 2 Email</label>
-                    <input type="email" className="form-control" value={formData?.kontakt2_email} onChange={handleInputChange} name="kontakt2_email" placeholder="Email"/>
+                    <input type="email" className={error.kontakt2_email?"form-contro border border-danger":"form-control"} value={formData?.kontakt2_email} onChange={handleInputChange} name="kontakt2_email" placeholder="Email"/>
                 </div>
             </div>
             <div className='d-flex justify-content-center'>
