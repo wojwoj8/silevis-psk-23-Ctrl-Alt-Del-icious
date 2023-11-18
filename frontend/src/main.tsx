@@ -16,6 +16,8 @@ import AdminAtt1 from './components/AdminAtt1.tsx'
 import PoadnieForm from './components/forms/PodanieForm.tsx'
 import OswiadczenieForm from './components/forms/OswiadczenieForm.tsx'
 import Login from './components/Login.tsx'
+import SprawozdanieForm from './components/forms/SprawozdanieForm.tsx'
+
 
 const router = createBrowserRouter([{
   path: "/",
@@ -76,6 +78,10 @@ const router = createBrowserRouter([{
     {
       path:"/login",
       element: <Login/>
+    },
+    {
+      path:"/sprawozdanie",
+      element: <SprawozdanieForm/>
     },
     {
       path:"/admin",
