@@ -18,6 +18,7 @@ interface FormData {
     kontakt2_imie: string;
     kontakt2_tel: string;
     kontakt2_email: string;
+    status: string;
   }
 
   export type{FormData}

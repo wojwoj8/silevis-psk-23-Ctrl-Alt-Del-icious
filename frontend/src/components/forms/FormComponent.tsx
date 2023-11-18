@@ -5,6 +5,8 @@ import Doc1v2 from '../pdf/Doc1v2';
 import { FormData } from '../interfaces/Form';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const FormComponent = () =>{
 
@@ -19,6 +21,8 @@ const FormComponent = () =>{
         }));
 
       };
+    const navigate = useNavigate();
+    const [status, setStatus] = useState(false)
     const currentDate = new Date().toISOString().split('T')[0];
     const [userData, setUserData] = useState()
     const [docData, setDocData] = useState()
@@ -43,19 +47,23 @@ const FormComponent = () =>{
         kontakt1_email: "",
         kontakt2_imie: "",
         kontakt2_tel: "",
-        kontakt2_email: ""
+        kontakt2_email: "",
+        status: ""
       });
+    const { id } = useParams();
     const getData = async () =>{
         
-        try{
-            const response = await axios.get('/backend/testview/',  {
+        try {
+            const url = id ? `/backend/testview/${id}` : '/backend/testview/';
+            console.log(url)
+            const response = await axios.get(url, {
                 headers: {
                     'accept': 'application/json',
                   },
               });
               
            console.log(response.data)
-           setDocData(response.data)
+           setFormData(response.data)
         }catch (error: any) {
           
             console.log(error);
@@ -111,6 +119,22 @@ const FormComponent = () =>{
             console.log(error);
           }
     }
+    const editData = async () =>{
+        
+        try{
+            const response = await axios.put(`/backend/testview/${id}`, formData,  {
+                headers: {
+                    'accept': 'application/json',
+                  },
+              });
+              
+           console.log(response.data)
+        //    setUserData(response.data)
+        }catch (error: any) {
+          
+            console.log(error);
+          }
+    }
 
 
     const downloadPDF = async ()=>{
@@ -137,9 +161,31 @@ const FormComponent = () =>{
         
     }
 
+    const handleStatus = (status:string) =>{
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            status: status
+            
+        }));
+        setStatus(true)
+    }
+    useEffect(()=>{
+        if (status === true){
+        const fetchData = async () =>{
+
+            await editData()
+            navigate('/adminatt1')
+
+        }
+        fetchData()
+    }
+    },[status])
 
     useEffect(()=>{
         const fetchData = async () =>{
+            if (id){
+                await getData()
+            }
             await getEmailData()
             await getDefaultData()
         }
@@ -147,24 +193,26 @@ const FormComponent = () =>{
     },[])
 
     useEffect(() => {
+        if (!id){
+            setFormData(prevFormData => ({
+                ...prevFormData,
+                nr_albumu: userData?.studentNumber,
+                student: `${userData?.firstName} ${userData?.lastName}`
+            }));
+        }
         
-        setFormData(prevFormData => ({
-            ...prevFormData,
-            nr_albumu: userData?.studentNumber,
-            student: `${userData?.firstName} ${userData?.lastName}`
-        }));
         
     }, [userData]);
 
     useEffect(() => {
-        
+        if (!id){
         setFormData(prevFormData => ({
             ...prevFormData,
             start_praktyk: defaultData?.start_praktyk,
             koniec_praktyk: defaultData?.koniec_praktyk,
             dziekan_wydzialu: defaultData?.dziekan_wydzialu,
         }));
- 
+    }
         
     }, [defaultData]);
 
@@ -263,6 +311,10 @@ const FormComponent = () =>{
                 </div>
             </div>
             <button className='btn btn-danger' onClick={postData}>post data</button>
+            <div className='d-flex justify-content-center'>
+                <button className='btn btn-success' onClick={() =>handleStatus('accepted')}>Accept</button>
+                <button className='btn btn-danger' onClick={() =>handleStatus('denied')}>Deny</button>
+            </div>
             
         </div>
         <div className="flex flex-col lg:flex-row lg:justify-center gap-5 items-center">

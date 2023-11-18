@@ -31,10 +31,16 @@ class TestView(generics.GenericAPIView,
     serializer_class = Attachment1Serializer
 
     def get(self, request, *args, **kwargs):
-        
-        attachment = get_object_or_404(Attachment1, id=1)
-        serializer = self.serializer_class(attachment)
-        return Response(serializer.data)
+            
+        if 'id' in kwargs:
+            print('test')
+            attachment = get_object_or_404(Attachment1, id=kwargs['id'])
+            serializer = self.serializer_class(attachment)
+            return Response(serializer.data)
+        else:  
+            attachment = get_object_or_404(Attachment1, id=1)
+            serializer = self.serializer_class(attachment)
+            return Response(serializer.data)
     
     def post(self, request, *args, **kwargs):
         print(request.data)
@@ -44,6 +50,29 @@ class TestView(generics.GenericAPIView,
             return Response(serializer.data)
         print(serializer.errors)
         return Response(serializer.errors, status=400)
+    
+    def put(self, request, *args, **kwargs):
+        print(request.data)
+        if 'id' in kwargs:
+            try:
+                instance = get_object_or_404(Attachment1, id=kwargs['id'])
+
+            except self.serializer_class.Meta.model.DoesNotExist:
+                return Response(
+                    {"error": f"{self.serializer_class.Meta.model.__name__} not found"},
+                    status=status.HTTP_404_NOT_FOUND,
+                )
+
+            serializer = self.serializer_class(instance, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=400)
+        else:
+            return Response(
+                    {"error": f"{self.serializer_class.Meta.model.__name__} not found"},
+                    status=status.HTTP_404_NOT_FOUND,
+                )
     
 class AdminDataView(generics.GenericAPIView,
     mixins.ListModelMixin,

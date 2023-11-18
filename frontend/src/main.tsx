@@ -46,6 +46,10 @@ const router = createBrowserRouter([{
       element: <FormComponent/>
     },
     {
+      path:"/umowapdf/:id",
+      element: <FormComponent/>
+    },
+    {
       path:"/podanie",
       element: <Podanie/>
     },

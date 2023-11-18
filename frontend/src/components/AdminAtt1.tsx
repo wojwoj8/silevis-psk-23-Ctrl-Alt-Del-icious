@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios, { AxiosError } from 'axios';
+import Att1Item from './Att1Item';
 
 const AdminAtt1 = () =>{
 
@@ -15,13 +16,7 @@ const AdminAtt1 = () =>{
 
       };
 
-      const [adminData, setAdminData] = useState({
-        id: "",
-        start_praktyk: "",
-        koniec_praktyk: "",
-        dziekan_wydzialu: "",
-        
-    })
+    const [listData, setListData] = useState([])
     const [docData, setDocData] = useState()
     const [formData, setFormData] = useState({
         
@@ -54,7 +49,7 @@ const AdminAtt1 = () =>{
               });
               
            console.log(response.data)
-           setAdminData(response.data)
+           setListData(response.data)
         }catch (error: any) {
           
             console.log(error);
@@ -112,7 +107,10 @@ const AdminAtt1 = () =>{
 
         <div className='container'>
 
-            
+            {listData.map((item, index) => (
+                <Att1Item key={index} data={item} />
+            ))
+            }
 
             <button className='btn btn-primary' onClick={getData}>get data</button>
             <button className='btn btn-danger'  onClick={editData}>edit data</button>
