@@ -4,7 +4,7 @@ export default function Doc1v1({data}:{data:FormData}){
     const empty = "........................................"
     const short_empty = "..................."
     return(
-    <div id="page1" className="mx-10 my-10 page shadow-2xl">
+    <div id="page1" className="shrink-0	mx-10 my-10 page shadow-2xl">
         <div className=" mt-10 mx-10 flex flex-col items-end gap-0">
             <span className="font-bold text-xs ">Załącznik nr 1 do Zarządzenia Nr 54/19</span>
             <span className="font-bold text-xs ">Rektora Politechniki Świętokrzyskiej z dnia 20 września 2019 r.</span>

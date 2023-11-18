@@ -9,8 +9,9 @@ export default function Before(){
                 <span>Wygeneruj swoje pdf do wydrukowania</span>
             </div>
             <div >
-                <ul className="flex items-center">
+                <ul className="flex items-center flex-col">
                     <li><Link className="no-underline text-lg " to='/umowapdf'>Umowa o organizację praktyki studenta Politechniki Świętokrzyskiej – załącznik nr 1</Link></li>
+                    <li><Link className="no-underline text-lg " to='/podanie'>Podanie o wyrażenie zgody na realizację czterotygodniowej praktyki studenckiej załącznik nr 5.</Link></li>
                 </ul>
             </div>
         </div>

@@ -95,7 +95,7 @@ const FormComponent = () =>{
 
 
     const downloadPDF = async ()=>{
-        const page1 = document.getElementById('page1');
+        const page1 = document.getElementById('page1'); 
         const page2 = document.getElementById('page2');
         if(page1 && page2){
             const pdf1 = await html2canvas(page1, {scale:2});
@@ -223,7 +223,7 @@ const FormComponent = () =>{
             <button className='btn btn-danger' onClick={postData}>post data</button>
             
         </div>
-        <div className="flex gap-5 justify-center">
+        <div className="flex flex-col lg:flex-row lg:justify-center gap-5 items-center">
                 <Doc1v1 data={formData}/>
                 <Doc1v2 data={formData}/>
             </div>

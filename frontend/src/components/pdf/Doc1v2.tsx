@@ -3,7 +3,7 @@ import { FormData } from "../interfaces/Form";
 export default function Doc1v2({data}:{data:FormData}){
     const empty = "..........................................................."
     return(
-        <div id="page2" className=" my-10 page shadow-2xl">
+        <div id="page2" className="shrink-0 my-10 page shadow-2xl">
             <div className="mx-10 mt-20">
                 <span>§ 5. 1. Strony wyznaczają osoby właściwe do kontaktu w bieżących sprawach:</span><br></br>
                 <span>1) z ramienia Zakładu Pracy {data.kontakt1_imie?data.kontakt1_imie:empty}</span><br></br>
