@@ -1,7 +1,7 @@
 export default function Podanie(){
     return(
-    <div className="page">
-        <div className="flex justify-space mx-20 mt-20">
+    <div className="page mt-20">
+        <div className="flex justify-between mx-20 pt-20">
             <div>
                 <span>...........................................................</span><br></br>
                 <span>Imię i Nazwisko studenta</span><br></br>
@@ -13,6 +13,13 @@ export default function Podanie(){
             </div>
             <div>
                 <span>Kielce, ....................</span>
+            </div>
+        </div>
+        <div className="mx-20 flex items-end flex-col">
+            <div className="text-center">
+                <span><b>Kierwonik</b></span><br></br>
+                <span> <b>ds. praktyk studenckich</b></span><br></br>
+                <span className="block mt-2">............................................................</span><br></br>
             </div>
         </div>
     </div>
