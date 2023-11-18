@@ -47,8 +47,8 @@ class Attachment1(models.Model):
     reprezentant_zakladu = models.CharField(max_length=100) 
     student = models.CharField(max_length=100) 
     nr_albumu = models.CharField(max_length=100) 
-    start_praktyk = models.DateField()
-    koniec_praktyk = models.DateField()
+    start_praktyk = models.DateField(blank=True)
+    koniec_praktyk = models.DateField(blank=True)
     kontakt1_imie = models.CharField(max_length=100) 
     kontakt1_tel = models.CharField(max_length=100) 
     kontakt1_email = models.CharField(max_length=100) 
@@ -64,7 +64,7 @@ class Attachment1(models.Model):
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
-        default='pending'
+        default='pending',
     )
     
 

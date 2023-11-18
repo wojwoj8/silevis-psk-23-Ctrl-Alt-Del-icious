@@ -17,7 +17,7 @@ const AdminComponent = () =>{
       };
 
       const [adminData, setAdminData] = useState({
-        id: "",
+        id: 0,
         start_praktyk: "",
         koniec_praktyk: "",
         dziekan_wydzialu: "",
@@ -130,10 +130,20 @@ const AdminComponent = () =>{
                     <input type="date" className="form-control" value={adminData?.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk"/>
                 </div>
             </div>
+            <div className='d-flex justify-content-center'>
 
-            <button className='btn btn-primary' onClick={getData}>get data</button>
-            <button className='btn btn-danger'  onClick={editData}>edit data</button>
-            <button className='btn btn-danger' onClick={postData}>post data</button>
+            
+                {adminData.id === 1 ? (
+                    <button className='btn btn-danger'  onClick={editData}>edit data</button>
+                ) :(
+                    <>
+                        <button className='btn btn-primary' onClick={getData}>get data</button>
+                    
+                        <button className='btn btn-danger' onClick={postData}>post data</button>
+                    </>
+                )}  
+            </div>
+           
         </div>
     )
 }

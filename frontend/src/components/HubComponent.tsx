@@ -18,28 +18,28 @@ export default function HubComponent(){
                     <li>pogłębianie wiedzy o branżach gospodarki, poznanie zasad organizacji przedsiębiorstw i mechanizmów ich funkcjonowania.</li>
                 </ul>
 
-                <div className="row row-cols-1 row-cols-md-3 g-4 p-5">
-                    <Link to='/przed' className="col">
-                        <div className="card h-100">
-                        <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/room_icon_144154.png" className="card-img-top" alt="..."/>
-                        <div className="card-body">
+                <div className="row row-cols-1 row-cols-md-3 g-4 p-5 ">
+                    <Link to='/przed' className="col text-decoration-none">
+                        <div className="card h-100 text-center onhoverorange">
+                        <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/room_icon_144154.png" className="card-img-top mx-auto max65p pt-2" alt="..."/>
+                        <div className="card-body ">
                             <h5 className="card-title">Przed praktyka</h5>
-                            <p className="card-text">Wyszkuja interesujace oferty praktyk, sprawdz terminy, wygeneruj dokumenty</p>
+                            <p className="card-text">Wyszkuja interesujace oferty praktyk, sprawdź terminy, wygeneruj dokumenty</p>
                         </div>
                         </div>
                     </Link>
-                    <Link to="/po" className="col">
-                        <div className="card h-100">
-                        <img src="https://icons-for-free.com/iconfiles/png/512/out+icon-1320166904342226658.png" className="card-img-top" alt="..."/>
+                    <Link to='/po' className="col text-decoration-none">
+                        <div className="card h-100 text-center onhoverorange">
+                        <img src="https://icons-for-free.com/iconfiles/png/512/out+icon-1320166904342226658.png" className="card-img-top mx-auto max65p  pt-2z" alt="..."/>
                         <div className="card-body">
-                            <h5 className="card-title">Po praktyce</h5>
-                            <p className="card-text">Sprawdz status praktyk, zloz dokumenty</p>
+                            <h5 className="card-title pt-2">Po praktyce</h5>
+                            <p className="card-text">Sprawdź status praktyk, złóż dokumenty, uzupełnij zaległości</p>
                         </div>
                         </div>
                     </Link>
-                    <Link to="/dokumenty" className="col">
-                        <div className="card h-100">
-                        <img src="https://www.svgrepo.com/download/164522/checked-files.svg" className="card-img-top" alt="..."/>
+                    <Link to='/dokumenty' className="col text-decoration-none">
+                        <div className="card h-100 text-center onhoverorange">
+                        <img src="https://www.svgrepo.com/download/164522/checked-files.svg" className="card-img-top mx-auto max65p  pt-2" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title">Dokumenty</h5>
                             <p className="card-text">Wzory dokumentow potrzebnych przez caly okres odbywania praktyk</p>
@@ -51,6 +51,8 @@ export default function HubComponent(){
                 Student we własnym zakresie wyszukuje miejsce odbywania praktyki, przedstawia propozycję Kierownikowi ds. praktyk studenckich na Wydziale (odpowiednio dla danego kierunku studiów) w celu uzyskania akceptacji. Po uzyskaniu zgody student składa w wybranym przez siebie zakładzie pracy podanie z prośbą o przyjęcie na praktykę (w przypadku gdy tego wymaga pracodawca). Warunki realizacji praktyki przez studenta określa Umowa zawarta pomiędzy Politechniką Świętokrzyską i pracodawcą. Praktyka ma z reguły charakter nieodpłatnej pracy na rzecz danego zakładu pracy. Uczelnia nie ubezpiecza studentów – praktykantów od następstw nieszczęśliwych wypadków (NW). Decyzję o ewentualnym ubezpieczeniu student podejmuje samodzielnie.
                 Przed odbyciem praktyki student powinien dostarczyć w nieprzekraczalnych terminie do dnia 3.06.2023 następujące dokumenty do Dziekanatu:     
                 </p>
+
+
             </div>
         </div>
     )

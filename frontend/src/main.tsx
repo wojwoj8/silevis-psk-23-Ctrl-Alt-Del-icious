@@ -8,10 +8,13 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HubComponent from './components/HubComponent.tsx'
 import Before from './components/before/Before.tsx'
+import After from './components/after/After.tsx'
+import Documents from './components/documents/Documents.tsx'
 import AdminComponent from './components/AdminComponent.tsx'
 import UserPanel from './components/UserPanel.tsx'
 import AdminAtt1 from './components/AdminAtt1.tsx'
 import PoadnieForm from './components/forms/PodanieForm.tsx'
+import OswiadczenieForm from './components/forms/OswiadczenieForm.tsx'
 import PoPraktyce from './components/PoPraktyce.tsx'
 import Dokumenty from './components/Dokumenty.tsx'
 
@@ -45,6 +48,14 @@ const router = createBrowserRouter([{
       element: <Before/>
     },
     {
+      path: "/po",
+      element: <After/>
+    },
+    {
+      path: "/dokumenty",
+      element: <Documents/>
+    },
+    {
       path:"/umowapdf",
       element: <FormComponent/>
     },
@@ -55,6 +66,10 @@ const router = createBrowserRouter([{
     {
       path:"/podanie",
       element: <PoadnieForm/>
+    },
+    {
+      path:"/oswiadczenie",
+      element: <OswiadczenieForm/>
     },
     {
       path:"/admin",

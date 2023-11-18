@@ -221,10 +221,10 @@ const FormComponent = () =>{
     return(
         <div>
         <div className='container'>
-            <button className='btn btn-primary' onClick={getData}>get data</button>
-            <button className='btn btn-danger'  onClick={getEmailData}>get data</button>
-            <button className='btn btn-primary' onClick={downloadPDF}>Download PDF</button>
-            <button className='btn btn-primary' onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>Change language: {language}</button>
+            <div className='d-flex justify-content-center'>
+                <button className='btn btn-primary' onClick={downloadPDF}>Download PDF</button>
+                <button className='btn btn-primary' onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>Change language: {language}</button>
+            </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="zawarcie_umowy" className="form-label">Zawarcie Umowy</label>
@@ -313,10 +313,16 @@ const FormComponent = () =>{
                     <input type="email" className="form-control" value={formData?.kontakt2_email} onChange={handleInputChange} name="kontakt2_email" placeholder="Email"/>
                 </div>
             </div>
-            <button className='btn btn-danger' onClick={postData}>post data</button>
             <div className='d-flex justify-content-center'>
-                <button className='btn btn-success' onClick={() =>handleStatus('accepted')}>Accept</button>
-                <button className='btn btn-danger' onClick={() =>handleStatus('denied')}>Deny</button>
+            {id ? (
+                <>
+                    <button className='btn btn-success' onClick={() =>handleStatus('accepted')}>Accept</button>
+                    <button className='btn btn-danger' onClick={() =>handleStatus('denied')}>Deny</button>
+                </>
+            
+            ) :(
+                <button className='btn btn-danger' onClick={postData}>post data</button>
+            )}
             </div>
             
         </div>
