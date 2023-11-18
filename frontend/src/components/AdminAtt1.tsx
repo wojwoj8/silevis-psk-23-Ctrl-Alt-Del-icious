@@ -67,14 +67,53 @@ const AdminAtt1 = () =>{
  
      
     return(
-
-
         <div className='container'>
+            <div className="row row-cols-1 row-cols-md-3 g-4 p-5 ">
+                <div className="col text-decoration-none">
+                    <div className="card h-100 text-center">
+                        <div className="card-body ">
+                            <h5 className="card-title">Zatwierdzone wnioski</h5>
+                            {listData
+                            .filter(item => item.status === 'accepted')
+                            .map((item, index) => (
+                                <Att1Item key={index} data={item} defaultData={defaultData} />
+                            ))
+                            }                        
+                        </div>
+                    </div>
+                </div>
 
-            {listData.map((item, index) => (
-                <Att1Item key={index} data={item} defaultData={defaultData} />
-            ))
-            }
+                <div className="col text-decoration-none">
+                    <div className="card h-100 text-center">
+                        <div className="card-body ">
+                            <h5 className="card-title">Oczekujace wnioski</h5>
+                            {listData
+                            .filter(item => item.status === 'pending')
+                            .map((item, index) => (
+                                <Att1Item key={index} data={item} defaultData={defaultData} />
+                            ))
+                            }                           </div>
+                    </div>
+                </div>
+
+                <div className="col text-decoration-none">
+                    <div className="card h-100 text-center">
+                        <div className="card-body ">
+                            <h5 className="card-title">Odrzucone wnioski</h5>
+                            {listData
+                            .filter(item => item.status === 'denied')
+                            .map((item, index) => (
+                                <Att1Item key={index} data={item} defaultData={defaultData} />
+                            ))
+                            }                           </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
 
             
         </div>
