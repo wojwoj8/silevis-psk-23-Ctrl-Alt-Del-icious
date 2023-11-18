@@ -18,6 +18,8 @@ export default function Header() {
         <div className="vr text-white "></div>
         <div className="d-flex mx-3 text-white"><button onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>language: {language}</button></div>
         <div className="vr text-white"></div>
+        <Link to="/login" className="d-flex mx-3 text-white">Login</Link>
+        <div className="vr text-white"></div>
         <Link to="/userpanel" className="d-flex mx-3 text-white">User</Link>
         <div className="vr text-white"></div>
         <Link to="/admin" className="d-flex mx-3 text-white">Admin</Link>

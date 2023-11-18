@@ -6,7 +6,8 @@ import { FormData } from '../interfaces/Form';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie';
 
 const FormComponent = () =>{
 
@@ -72,22 +73,22 @@ const FormComponent = () =>{
           }
     }
 
-    const getEmailData = async () =>{
+    // const getEmailData = async () =>{
         
-        try{
-            const response = await axios.get(`/api/user/s011111@student.tu.kielce.pl`,  {
-                headers: {
-                    'accept': 'application/json',
-                  },
-              });
+    //     try{
+    //         const response = await axios.get(`/api/user/s011111@student.tu.kielce.pl`,  {
+    //             headers: {
+    //                 'accept': 'application/json',
+    //               },
+    //           });
               
-           console.log(response.data)
-           setUserData(response.data)
-        }catch (error: any) {
+    //        console.log(response.data)
+    //        setUserData(response.data)
+    //     }catch (error: any) {
           
-            console.log(error);
-          }
-    }
+    //         console.log(error);
+    //       }
+    // }
 
     const getDefaultData = async () =>{
         
@@ -188,7 +189,7 @@ const FormComponent = () =>{
             if (id){
                 await getData()
             }
-            await getEmailData()
+            // await getEmailData()
             await getDefaultData()
         }
         fetchData()
@@ -217,6 +218,19 @@ const FormComponent = () =>{
     }
         
     }, [defaultData]);
+
+    const userDataCookie = Cookies.get('userData');
+    
+    useEffect(() =>{
+        if (userDataCookie) {
+            const userDataJson = JSON.parse(userDataCookie);
+            setUserData(userDataJson)
+            
+        } else {
+            console.log('userData cookie not found');
+        }
+    },[])
+    
 
     return(
         <div>
