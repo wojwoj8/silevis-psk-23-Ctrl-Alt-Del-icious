@@ -12,7 +12,7 @@ export default function Header() {
   let userDataJson
 
   useEffect(()=>{
-    console.log(userDataCookie)
+    
         if (userDataCookie) {
             userDataJson = JSON.parse(userDataCookie);
             setUserData(userDataJson)

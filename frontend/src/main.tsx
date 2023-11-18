@@ -34,10 +34,6 @@ const router = createBrowserRouter([{
       element: <AdminComponent/>,
     },
     {
-      path: "/form",
-      element: <FormComponent/>,
-    },
-    {
       path: "/userpanel",
       element: <UserPanel/>,
     },
@@ -52,10 +48,6 @@ const router = createBrowserRouter([{
     {
       path: "/przed",
       element: <Before/>
-    },
-    {
-      path: "/po",
-      element: <After/>
     },
     {
       path: "/dokumenty",
@@ -91,7 +83,7 @@ const router = createBrowserRouter([{
     },
     {
       path:"/po",
-      element:<PoPraktyce/>
+      element:<UserPanel/>
     },
     {
       path:"/dokumenty",
