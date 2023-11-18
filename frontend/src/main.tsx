@@ -20,6 +20,10 @@ const router = createBrowserRouter([{
       element: <HubComponent/>
     },
     {
+      path: "/adminview",
+      element: <AdminComponent/>,
+    },
+    {
       path: "/form",
       element: <FormComponent/>,
     },
