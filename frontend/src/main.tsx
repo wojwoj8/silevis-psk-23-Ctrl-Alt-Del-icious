@@ -8,6 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Doc1 from './components/pdf/Doc1v1.tsx'
 import HubComponent from './components/HubComponent.tsx'
+import AdminComponent from './components/AdminComponent.tsx'
 
 const router = createBrowserRouter([{
   path: "/",
@@ -24,6 +25,10 @@ const router = createBrowserRouter([{
     {
       path:"/doc1",
       element: <Doc1/>
+    },
+    {
+      path:"/adminview",
+      element: <AdminComponent/>
     }
   ]
 },])

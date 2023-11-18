@@ -18,6 +18,11 @@ class User(AbstractUser):
     def __str__(self):
         return f"{self.username}"
     
+class AdminData(models.Model):
+    dziekan_wydzialu = models.CharField(max_length=255)
+    start_praktyk = models.DateField()
+    koniec_praktyk = models.DateField()
+    
 class Attachment1(models.Model):
     zawarcie_umowy = models.DateField()
     dziekan_wydzialu = models.CharField(max_length=255)
