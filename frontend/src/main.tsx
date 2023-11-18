@@ -54,10 +54,6 @@ const router = createBrowserRouter([{
       element: <Before/>
     },
     {
-      path: "/po",
-      element: <After/>
-    },
-    {
       path: "/dokumenty",
       element: <Documents/>
     },
@@ -91,7 +87,7 @@ const router = createBrowserRouter([{
     },
     {
       path:"/po",
-      element:<PoPraktyce/>
+      element:<UserPanel/>
     },
     {
       path:"/dokumenty",
