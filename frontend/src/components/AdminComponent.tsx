@@ -54,7 +54,7 @@ const AdminComponent = () =>{
               });
               
            console.log(response.data)
-           setDocData(response.data)
+           setAdminData(response.data)
         }catch (error: any) {
           
             console.log(error);
@@ -99,22 +99,14 @@ const AdminComponent = () =>{
 
     useEffect(()=>{
         const fetchData = async () =>{
-            await getEmailData()
+            await getData()
 
            
         }
         fetchData()
     },[])
 
-    // useEffect(() => {
-        
-    //     setFormData(prevFormData => ({
-    //         ...prevFormData,
-    //         nr_albumu: userData.studentNumber,
-    //         student: `${userData.firstName} ${userData.lastName}`
-    //     }));
-        
-    // }, [userData]);
+ 
      
     return(
 
