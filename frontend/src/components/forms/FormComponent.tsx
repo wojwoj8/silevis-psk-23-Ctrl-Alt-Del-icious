@@ -305,7 +305,6 @@ const FormComponent = () =>{
         <div className='container'>
             <div className='d-flex justify-content-center'>
                 <button className='btn btn-primary' onClick={downloadPDF}>Download PDF</button>
-                <button className='btn btn-primary' onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>Change language: {language}</button>
             {errMes?errMes:''}
             </div>
             <div className='row'>
@@ -410,7 +409,7 @@ const FormComponent = () =>{
             
         </div>
         <div className="flex flex-col lg:flex-row lg:justify-center gap-5 items-center">
-                <Doc1v1 data={formData} lang={language}/>
+                <Doc1v1 data={formData}/>
                 <Doc1v2 data={formData}/>
             </div>
             <ToastContainer/>
