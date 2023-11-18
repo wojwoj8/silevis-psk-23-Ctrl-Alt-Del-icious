@@ -310,10 +310,16 @@ const FormComponent = () =>{
                     <input type="email" className="form-control" value={formData?.kontakt2_email} onChange={handleInputChange} name="kontakt2_email" placeholder="Email"/>
                 </div>
             </div>
-            <button className='btn btn-danger' onClick={postData}>post data</button>
             <div className='d-flex justify-content-center'>
-                <button className='btn btn-success' onClick={() =>handleStatus('accepted')}>Accept</button>
-                <button className='btn btn-danger' onClick={() =>handleStatus('denied')}>Deny</button>
+            {id ? (
+                <>
+                    <button className='btn btn-success' onClick={() =>handleStatus('accepted')}>Accept</button>
+                    <button className='btn btn-danger' onClick={() =>handleStatus('denied')}>Deny</button>
+                </>
+            
+            ) :(
+                <button className='btn btn-danger' onClick={postData}>post data</button>
+            )}
             </div>
             
         </div>

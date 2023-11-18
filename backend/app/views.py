@@ -43,7 +43,10 @@ class TestView(generics.GenericAPIView,
             return Response(serializer.data)
     
     def post(self, request, *args, **kwargs):
-        print(request.data)
+        print(request.data['status'])
+        if request.data['status'] == '':
+            request.data['status'] = 'pending'
+
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
