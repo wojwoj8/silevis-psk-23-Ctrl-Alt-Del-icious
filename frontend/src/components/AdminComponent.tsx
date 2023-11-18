@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AdminComponent = () =>{
 
@@ -45,6 +46,29 @@ const AdminComponent = () =>{
         kontakt2_tel: "",
         kontakt2_email: ""
       });
+
+      const ok = (mess:string) => toast.success(`${mess}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+
+    const err = (mess:string)=>toast.error(`${mess}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+            });
+
     const getData = async () =>{
         
         try{
@@ -53,7 +77,7 @@ const AdminComponent = () =>{
                     'accept': 'application/json',
                   },
               });
-              
+            
            console.log(response.data)
            setAdminData(response.data)
         }catch (error: any) {
@@ -70,11 +94,12 @@ const AdminComponent = () =>{
                     'accept': 'application/json',
                   },
               });
-              
-           console.log(response.data)
+            ok('Dane zostały wysłane!')
+            console.log(response.data)
+            window.location.reload();
         //    setUserData(response.data)
         }catch (error: any) {
-          
+            err('Coś poszło nie tak, upewnij się że wszystkie pola zostały wypełnione.')
             console.log(error);
           }
     }
@@ -87,11 +112,11 @@ const AdminComponent = () =>{
                     'accept': 'application/json',
                   },
               });
-              
+            ok('Dane zostały wysłane!')
            console.log(response.data)
         //    setUserData(response.data)
         }catch (error: any) {
-          
+            err('Coś poszło nie tak, upewnij się że wszystkie pola zostały wypełnione.')
             console.log(error);
           }
     }
@@ -134,16 +159,16 @@ const AdminComponent = () =>{
 
             
                 {adminData.id === 1 ? (
-                    <button className='btn btn-danger'  onClick={editData}>edit data</button>
+                    <button className='btn btn-danger'  onClick={editData}>Edit data</button>
                 ) :(
                     <>
-                        <button className='btn btn-primary' onClick={getData}>get data</button>
+                        {/* <button className='btn btn-primary' onClick={getData}>get data</button> */}
                     
-                        <button className='btn btn-danger' onClick={postData}>post data</button>
+                        <button className='btn btn-danger' onClick={postData}>Send data</button>
                     </>
                 )}  
             </div>
-           
+            <ToastContainer/>
         </div>
     )
 }

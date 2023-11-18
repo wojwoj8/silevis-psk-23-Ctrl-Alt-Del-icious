@@ -28,6 +28,7 @@ export default function HubComponent(){
 
             <div className="row row-cols-1 row-cols-md-3 g-4 p-5 ">
                 {userDataCookie ? (
+                    <>
                     <Link to='/przed' className="col text-decoration-none">
                         <div className="card h-100 text-center onhoverorange">
                             <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/room_icon_144154.png" className="card-img-top mx-auto max65p pt-2" alt="..."/>
@@ -37,8 +38,19 @@ export default function HubComponent(){
                             </div>
                             </div>
                     </Link>
+                    <Link to='/po' className="col text-decoration-none">
+                    <div className="card h-100 text-center onhoverorange">
+                    <img src="https://icons-for-free.com/iconfiles/png/512/out+icon-1320166904342226658.png" className="card-img-top mx-auto max65p  pt-2z" alt="..."/>
+                    <div className="card-body">
+                        <h5 className="card-title pt-2">Po praktyce</h5>
+                        <p className="card-text">Sprawdź status praktyk, złóż dokumenty, uzupełnij zaległości</p>
+                    </div>
+                    </div>
+                </Link>
+                </>
                 ):
                 (
+                    <>
                     <Link to='/login' className="col text-decoration-none">
                         <div className="card h-100 text-center onhoverorange">
                             <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/room_icon_144154.png" className="card-img-top mx-auto max65p pt-2" alt="..."/>
@@ -48,9 +60,7 @@ export default function HubComponent(){
                             </div>
                             </div>
                     </Link>
-                )}
-                
-                <Link to='/po' className="col text-decoration-none">
+                    <Link to='/login' className="col text-decoration-none">
                     <div className="card h-100 text-center onhoverorange">
                     <img src="https://icons-for-free.com/iconfiles/png/512/out+icon-1320166904342226658.png" className="card-img-top mx-auto max65p  pt-2z" alt="..."/>
                     <div className="card-body">
@@ -59,6 +69,10 @@ export default function HubComponent(){
                     </div>
                     </div>
                 </Link>
+                    </>
+                )}
+                
+                
                 <Link to='/dokumenty' className="col text-decoration-none">
                     <div className="card h-100 text-center onhoverorange">
                     <img src="https://www.svgrepo.com/download/164522/checked-files.svg" className="card-img-top mx-auto max65p  pt-2" alt="..."/>
