@@ -98,6 +98,28 @@ const FormComponent = () =>{
           }
     }
 
+    const checkAlreadyDocument = async () =>{
+        
+        try {
+            const url = `/backend/documentexist/${userData?.studentNumber}`;
+            console.log(url)
+            const response = await axios.get(url, {
+                headers: {
+                    'accept': 'application/json',
+                  },
+              });
+              
+           if (response.data.found){
+            navigate('/')
+           }
+           
+        }catch (error: any) {
+          
+            console.log(error);
+          }
+    }
+    
+
     // const getEmailData = async () =>{
         
     //     try{
@@ -140,7 +162,7 @@ const FormComponent = () =>{
         draggable: true,
         progress: undefined,
         theme: "colored",
-        });;
+        });
 
     const er500 = ()=>toast.error('Server Error (500)!!!', {
         position: "top-right",
@@ -151,7 +173,7 @@ const FormComponent = () =>{
         draggable: true,
         progress: undefined,
         theme: "colored",
-        });;
+        });
     const er400 = ()=>toast.error('Źle wypełniny formularz!!!', {
             position: "top-right",
             autoClose: 5000,
@@ -161,7 +183,7 @@ const FormComponent = () =>{
             draggable: true,
             progress: undefined,
             theme: "colored",
-            });;
+            });
     const postData = async () =>{
         
             try{
@@ -298,6 +320,13 @@ const FormComponent = () =>{
             console.log('userData cookie not found');
         }
     },[])
+
+    useEffect(() =>{
+        if (userData?.studentNumber){
+            checkAlreadyDocument()
+        }
+        
+    },[userData])
     
 
     return(

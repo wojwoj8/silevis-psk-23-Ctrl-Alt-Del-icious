@@ -26,7 +26,8 @@ urlpatterns = [
     path("testview/<int:id>", views.TestView.as_view(), name="TestView"),
     path("adminview/", views.AdminDataView.as_view(), name="AdminDataView"),
     path("userpanel/", views.UserPanelView.as_view(), name="UserPanelView"),
-    path("userpanel/<int:nr_albumu>", views.UserPanelView.as_view(), name="UserPanelView"),
+    path("userpanel/<int:nr_albumu>", views.UserPanelView.as_view(), name="UserPanelViewId"),
+    path("documentexist/<int:nr_albumu>", views.DocumentExistView.as_view(), name="DocumentExistViewId."),
     
     
 ]
