@@ -32,5 +32,11 @@
 .onhoverorange:hover {
   color: #EF7A1B;
   background-color: hsla(32, 94%, 50%, 0.2);
+}
+.onhoverorangetext:hover {
+  color: #EF7A1B;
+}
 
+.height150{
+  height:150px;
 }

@@ -28,7 +28,7 @@ export default function HubComponent(){
                         </div>
                         </div>
                     </Link>
-                    <div className="col">
+                    <Link to='/po' className="col text-decoration-none">
                         <div className="card h-100 text-center onhoverorange">
                         <img src="https://icons-for-free.com/iconfiles/png/512/out+icon-1320166904342226658.png" className="card-img-top mx-auto max65p  pt-2z" alt="..."/>
                         <div className="card-body">
@@ -36,8 +36,8 @@ export default function HubComponent(){
                             <p className="card-text">Sprawdź status praktyk, złóż dokumenty, uzupełnij zaległości</p>
                         </div>
                         </div>
-                    </div>
-                    <div className="col">
+                    </Link>
+                    <Link to='/dokumenty' className="col text-decoration-none">
                         <div className="card h-100 text-center onhoverorange">
                         <img src="https://www.svgrepo.com/download/164522/checked-files.svg" className="card-img-top mx-auto max65p  pt-2" alt="..."/>
                         <div className="card-body">
@@ -45,7 +45,7 @@ export default function HubComponent(){
                             <p className="card-text">Wzory dokumentow potrzebnych przez caly okres odbywania praktyk</p>
                         </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
                 <p>Praktyka studencka może być odbywana w wybranym przez studenta podmiocie gospodarczym, instytucji lub zakładzie o profilu umożliwiającym zrealizowanie celów określonych w programie praktyk.
                 Student we własnym zakresie wyszukuje miejsce odbywania praktyki, przedstawia propozycję Kierownikowi ds. praktyk studenckich na Wydziale (odpowiednio dla danego kierunku studiów) w celu uzyskania akceptacji. Po uzyskaniu zgody student składa w wybranym przez siebie zakładzie pracy podanie z prośbą o przyjęcie na praktykę (w przypadku gdy tego wymaga pracodawca). Warunki realizacji praktyki przez studenta określa Umowa zawarta pomiędzy Politechniką Świętokrzyską i pracodawcą. Praktyka ma z reguły charakter nieodpłatnej pracy na rzecz danego zakładu pracy. Uczelnia nie ubezpiecza studentów – praktykantów od następstw nieszczęśliwych wypadków (NW). Decyzję o ewentualnym ubezpieczeniu student podejmuje samodzielnie.
