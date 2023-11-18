@@ -3,7 +3,7 @@ import { PodanieInterface } from "../interfaces/Form";
 export default function Podanie({data}:{data:PodanieInterface}){
     const empty = ".............................................."
     return(
-    <div id="page1" className="page mt-20 ml-20 shadow-2xl">
+    <div id="page1" className="font-serif page mt-20 ml-20 shadow-2xl">
         <div className="flex justify-between mx-20 pt-20">
             <div>
                 <span>{data.imie_nazwisko?data.imie_nazwisko:empty}</span><br></br>

@@ -3,7 +3,7 @@ import { SprawozdanieInterface } from "../interfaces/Form";
 export default function Sprawozdanie({data}:{data:SprawozdanieInterface}){
     const empty = "………………………………………………………………………………………………………………………………"
     return(
-    <div id="page1" className="pt-5">
+    <div id="page1" className="pt-5 font-serif">
 
         <h2 className="text-center">SPRAWOZDANIE Z PRAKTYKI STUDENCKIEJ</h2>
         <div className="flex justify-content-start mx-20 pt-20">
