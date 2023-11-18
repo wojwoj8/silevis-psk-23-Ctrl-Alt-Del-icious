@@ -1,11 +1,12 @@
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState,  } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [userData, setUserData] = useState()
     const [error, setError] = useState()
-
+    const navigate = useNavigate()
     const handleInputChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
       ) => {
@@ -30,6 +31,8 @@ const Login = () => {
             Cookies.set('userData', JSON.stringify(response.data));
             setError(null)
             setUserData(response.data);
+            navigate('/')
+            window.location.reload();
 
             
         } catch (error:any) {
