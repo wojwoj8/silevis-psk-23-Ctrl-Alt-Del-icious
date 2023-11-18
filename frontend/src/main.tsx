@@ -8,8 +8,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HubComponent from './components/HubComponent.tsx'
 import Before from './components/before/Before.tsx'
-import Podanie from './components/pdf/Podanie.tsx'
 import AdminComponent from './components/AdminComponent.tsx'
+import PoadnieForm from './components/forms/PodanieForm.tsx'
 
 
 const router = createBrowserRouter([{
@@ -38,7 +38,7 @@ const router = createBrowserRouter([{
     },
     {
       path:"/podanie",
-      element: <Podanie/>
+      element: <PoadnieForm/>
     },
     {
       path:"/admin",

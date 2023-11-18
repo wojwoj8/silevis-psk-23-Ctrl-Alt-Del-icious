@@ -18,6 +18,14 @@ interface FormData {
     kontakt2_imie: string;
     kontakt2_tel: string;
     kontakt2_email: string;
-  }
+}
 
-  export type{FormData}
+interface PodanieInterface{
+  imie_nazwisko: string;
+  pesel: string;
+  adres:string;
+  telefon:string;
+  kierunek:string;
+}
+
+  export type{FormData,PodanieInterface}
