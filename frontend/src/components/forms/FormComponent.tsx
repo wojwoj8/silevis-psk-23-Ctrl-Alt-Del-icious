@@ -407,7 +407,7 @@ const FormComponent = () =>{
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt1_email" className="form-label">Kontakt 1 Email</label>
-                    <input type="email" className={!error.kontakt2_email?"form-contro border border-danger":"form-control"} value={formData?.kontakt2_email} onChange={handleInputChange} name="kontakt1_email" placeholder="Email"/>
+                    <input type="email" className={!error.kontakt2_email?"form-contro border border-danger":"form-control"} value={formData?.kontakt1_email} onChange={handleInputChange} name="kontakt1_email" placeholder="Email"/>
                 </div>
             </div>
             <div className='row'>
