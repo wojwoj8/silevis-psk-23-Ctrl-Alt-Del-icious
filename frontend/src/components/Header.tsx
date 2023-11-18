@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
@@ -11,6 +11,7 @@ export default function Header() {
   const userDataCookie = Cookies.get('userData');
   let userDataJson
 
+  const nav = useNavigate()
   useEffect(()=>{
     
         if (userDataCookie) {
@@ -27,6 +28,7 @@ export default function Header() {
   const Logout = () =>{
     document.cookie = 'userData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     setUserData('')
+    nav('/')
   }
 
 
