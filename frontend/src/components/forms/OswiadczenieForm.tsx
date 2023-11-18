@@ -43,30 +43,51 @@ export default function OswiadczenieForm(){
 
       return(
         <div>
-            <div className='container'>
-            <button className='btn btn-danger' onClick={downloadPDF}>Download PDF</button>
+
+
+    <div className="row row-cols-1 row-cols-md-2 g-4 m-2">
+            <div className="col">
+
+                <div className='row'>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="imie_nazwisko" className="form-label">Imie i nazwisko</label>
+                        <input type="text" className="form-control" value={dataForm.imie_nazwisko} onChange={handleInputChange} name="imie_nazwisko" placeholder="Imie i nazwisko"/>
+                    </div>
+                </div>
+
                 <div className='row'>
                     <div className="mb-3 col-md-4">
                         <label htmlFor="adres" className="form-label">Wydzial</label>
-                        <input type="text" className="form-control" placeholder="adres" value={dataForm.adres} onChange={handleInputChange} name="adres"/>
-                    </div>
-                    <div className="mb-3 col-md-4">
-                        <label htmlFor="imie_nazwisko" className="form-label">imie_nazwisko Wydziału</label>
-                        <input type="text" className="form-control" value={dataForm.imie_nazwisko} onChange={handleInputChange} name="imie_nazwisko" placeholder="Dziekan Wydziału"/>
-                    </div>
-                    <div className="mb-3 col-md-4">
-                        <label htmlFor="kierunek" className="form-label">kierunek</label>
-                        <input type="text" className="form-control" value={dataForm.kierunek} onChange={handleInputChange} name="kierunek" placeholder="Miasto"/>
+                        <input type="text" className="form-control" placeholder="Wydział" value={dataForm.adres} onChange={handleInputChange} name="adres"/>
                     </div>
                 </div>
+
                 <div className='row'>
                     <div className="mb-3 col-md-4">
-                        <label htmlFor="nr_albumu" className="form-label">nr_albumu</label>
-                        <input type="text" className="form-control" value={dataForm.nr_albumu} onChange={handleInputChange} name="nr_albumu" placeholder="Ulica"></input>
+                        <label htmlFor="kierunek" className="form-label">Kierunek, zakres</label>
+                        <input type="text" className="form-control" value={dataForm.kierunek} onChange={handleInputChange} name="kierunek" placeholder="kierunek"/>
                     </div>
                 </div>
+
+                <div className='row'>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="nr_albumu" className="form-label">Numer albumu</label>
+                        <input type="text" className="form-control" value={dataForm.nr_albumu} onChange={handleInputChange} name="nr_albumu" placeholder="numer albumu"></input>
+                    </div>
+                </div>
+
+                <button className='btn btn-danger' onClick={downloadPDF}>Pobierz PDF</button>
+
             </div>
-            <Oswiadczenie data={dataForm}/>
+            
+            <div className="col">
+                <div className="card h-100 text-center">
+                    <Oswiadczenie data={dataForm}/>
+                    <div className="card-body "></div>
+                </div>
+            </div>
         </div>
-      )
+    </div>
+        
+    )
 }
