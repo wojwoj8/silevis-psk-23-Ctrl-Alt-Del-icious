@@ -6,6 +6,7 @@ interface FormData {
     krs: string;
     nip: string;
     regon: string;
+    zaklad_pracy: string;
     reprezentant_zakladu: string;
     student: string;
     nr_albumu: string;

@@ -29,6 +29,7 @@ const FormComponent = () =>{
         nip: "",
         regon: "",
         reprezentant_zakladu: "",
+        zaklad_pracy: "",
         student: "",
         nr_albumu: "",
         start_praktyk: "",
@@ -133,15 +134,19 @@ const FormComponent = () =>{
                 </div>
             </div>
             <div className='row'>
-                <div className="mb-3 col-md-4">
+                <div className="mb-3 col-md-3">
                     <label htmlFor="regon" className="form-label">REGON</label>
                     <input type="text" className="form-control" onChange={handleInputChange} name="regon" placeholder="REGON"/>
                 </div>
-                <div className="mb-3 col-md-4">
+                <div className="mb-3 col-md-3">
                     <label htmlFor="reprezentant_zakladu" className="form-label">Reprezentant Zakładu</label>
                     <input type="text" className="form-control" onChange={handleInputChange} name="reprezentant_zakladu" placeholder="Reprezentant Zakładu"/>
                 </div>
-                <div className="mb-3 col-md-4">
+                <div className="mb-3 col-md-3">
+                    <label htmlFor="zaklad_pracy" className="form-label">Zakład Pracy</label>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="zaklad_pracy" placeholder="Zakład Pracy"/>
+                </div>
+                <div className="mb-3 col-md-3">
                     <label htmlFor="student" className="form-label">Student</label>
                     <input type="text" className="form-control" onChange={handleInputChange} name="student" placeholder="Student"/>
                 </div>
