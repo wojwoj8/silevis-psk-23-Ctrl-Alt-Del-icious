@@ -3,7 +3,7 @@ import { OswiadczenieInterface } from "../interfaces/Form";
 export default function Oswiadczenie({data}:{data:OswiadczenieInterface}){
     const empty = ".............................................."
     return(
-    <div id="page1" className="page mt-20 ml-20 shadow-2xl">
+    <div id="page1">
         <div className="flex justify-between mx-20 pt-20">
             <div>
                 <span>{data.imie_nazwisko?data.imie_nazwisko:empty}</span><br></br>
@@ -21,9 +21,9 @@ export default function Oswiadczenie({data}:{data:OswiadczenieInterface}){
         </div>
         <div className="mx-20 flex items-end flex-col">
             <div className="text-center">
-                <span>Wydziałowy Kierownik Praktyk</span><br></br>
+                <span>Wydziałowy Kierownik Praktyk</span><br></br> 
                 <span className="block mt-2">..................................................................</span>
-                <span>Wydział..................................................</span><br></br>
+                <span>Wydział   {data.adres?data.adres:empty}</span><br></br>
                 <span>Politechnika Świętokrzyska</span><br></br><br></br>
             </div>
         </div>
