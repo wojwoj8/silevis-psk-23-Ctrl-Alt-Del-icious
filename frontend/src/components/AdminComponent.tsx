@@ -139,8 +139,15 @@ const AdminComponent = () =>{
 
         <div className='container'>
             <div>
-                Dane wysłane przez sudentów
+                <div>
+                    <h3>Dane wysłane przez sudentów</h3>
+                </div>
+                
                 <Link to='/adminatt1'>Attachment1</Link>
+            </div>
+            <hr></hr>
+            <div>
+                <h3>Dane domyślne</h3>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
