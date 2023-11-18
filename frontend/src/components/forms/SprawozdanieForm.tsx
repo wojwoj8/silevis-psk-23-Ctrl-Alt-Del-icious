@@ -52,45 +52,73 @@ export default function SprawozdanieForm(){
 
                 <div className='row'>
                     <div className="mb-3 col-md-4">
-                        <label htmlFor="imie_nazwisko" className="form-label">Imie i nazwisko</label>
-                        <input type="text" className="form-control" value={dataForm.imie_nazwisko} onChange={handleInputChange} name="imie_nazwisko" placeholder="Imie i nazwisko"/>
+                        <label htmlFor="student" className="form-label">Imie i nazwisko</label>
+                        <input type="text" className="form-control" value={dataForm.student} onChange={handleInputChange} name="student" placeholder="Imie i nazwisko"/>
                     </div>
                 </div>
 
                 <div className='row'>
                     <div className="mb-3 col-md-4">
-                        <label htmlFor="adres" className="form-label">Wydzial</label>
-                        <input type="text" className="form-control" placeholder="Wydział" value={dataForm.wydzial} onChange={handleInputChange} name="wydzial"/>
+                        <label htmlFor="nr_albumu" className="form-label">nr_albumu</label>
+                        <input type="text" className="form-control" placeholder="nr_albumu" value={dataForm.nr_albumu} onChange={handleInputChange} name="nr_albumu"/>
                     </div>
                 </div>
 
                 <div className='row'>
                     <div className="mb-3 col-md-4">
-                        <label htmlFor="kierunek" className="form-label">Kierunek studiow</label>
-                        <input type="text" className="form-control" value={dataForm.kierunek} onChange={handleInputChange} name="kierunek" placeholder="kierunek studiow"/>
+                        <label htmlFor="wydzial" className="form-label">wydzial</label>
+                        <input type="text" className="form-control" value={dataForm.wydzial} onChange={handleInputChange} name="wydzial" placeholder="wydzial"/>
                     </div>
                 </div>
 
                 <div className='row'>
                     <div className="mb-3 col-md-4">
-                        <label htmlFor="nr_albumu" className="form-label">Rok studiów</label>
-                        <input type="text" className="form-control" value={dataForm.rok} onChange={handleInputChange} name="rok" placeholder="rok"></input>
+                        <label htmlFor="kierunek" className="form-label">kierunek</label>
+                        <input type="text" className="form-control" value={dataForm.kierunek} onChange={handleInputChange} name="kierunek" placeholder="kierunek"></input>
                     </div>
                 </div>
 
                 <div className='row'>
                     <div className="mb-3 col-md-4">
-                        <label htmlFor="nr_albumu" className="form-label">miejsce zrealizowanej praktyki</label>
+                        <label htmlFor="forma" className="form-label">forma</label>
+                        <input type="text" className="form-control" value={dataForm.forma} onChange={handleInputChange} name="forma" placeholder="forma"></input>
+                    </div>
+                </div>
+
+                <div className='row'>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="rok_studiow" className="form-label">rok_studiow</label>
+                        <input type="text" className="form-control" value={dataForm.rok_studiow} onChange={handleInputChange} name="rok_studiow" placeholder="rok_studiow"></input>
+                    </div>
+                </div> 
+
+                <div className='row'>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="zaklad_pracy" className="form-label">zaklad_pracy</label>
                         <input type="text" className="form-control" value={dataForm.zaklad_pracy} onChange={handleInputChange} name="zaklad_pracy" placeholder="zaklad_pracy"></input>
                     </div>
-                </div>
+                </div>   
 
                 <div className='row'>
                     <div className="mb-3 col-md-4">
-                        <label htmlFor="nr_albumu" className="form-label">termin zawarcia umowy</label>
-                        <input type="text" className="form-control" value={dataForm.zawarcie_umowy} onChange={handleInputChange} name="zawarcie_umowy" placeholder="zawarcie_umowy"></input>
+                        <label htmlFor="start_praktyk" className="form-label">start_praktyk</label>
+                        <input type="text" className="form-control" value={dataForm.start_praktyk} onChange={handleInputChange} name="start_praktyk" placeholder="start_praktyk"></input>
                     </div>
-                </div>       
+                </div> 
+
+                <div className='row'>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="koniec_praktyk" className="form-label">koniec_praktyk</label>
+                        <input type="text" className="form-control" value={dataForm.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk" placeholder="koniec_praktyk"></input>
+                    </div>
+                </div> 
+                
+                <div className='row'>
+                    <div className="mb-3 col-md-4">
+                        <label htmlFor="sprawozdanie" className="form-label">sprawozdanie</label>
+                        <input type="text" className="form-control" value={dataForm.sprawozdanie} onChange={handleInputChange} name="sprawozdanie" placeholder="sprawozdanie"></input>
+                    </div>
+                </div> 
 
                 <button className='btn btn-danger' onClick={downloadPDF}>Pobierz PDF</button>
 

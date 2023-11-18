@@ -9,6 +9,9 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const FormComponent = () =>{
 
     const handleInputChange = (
@@ -128,23 +131,56 @@ const FormComponent = () =>{
             console.log(error);
           }
     }
-    
+    const ok = () => toast.success('Umowa została wysłana!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });;
 
+    const er500 = ()=>toast.error('Server Error (500)!!!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });;
+    const er400 = ()=>toast.error('Źle wypełniny formularz!!!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });;
     const postData = async () =>{
-
+        
             try{
                 const response = await axios.post(`/backend/testview/`, formData,  {
                     headers: {
                         'accept': 'application/json',
                     },
                 });
-                
-            console.log(response.data)
+                ok()
+                navigate('/userpanel');
+            console.log(response.data);
             //    setUserData(response.data)
             }catch (error: any) {
                 if(axios.isAxiosError(error)){
                     console.log(error);
+                    if(error.response?.status === 500)
+                        er500()
                     if(error.response?.status === 400){
+                        er400()
                         setErrMes('Te pola są wymagane')
                         setError({...error.response?.data})
                     }
@@ -377,6 +413,7 @@ const FormComponent = () =>{
                 <Doc1v1 data={formData} lang={language}/>
                 <Doc1v2 data={formData}/>
             </div>
+            <ToastContainer/>
         </div>
     )
 }
