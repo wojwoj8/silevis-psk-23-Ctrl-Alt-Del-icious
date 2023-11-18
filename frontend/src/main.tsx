@@ -39,6 +39,10 @@ const router = createBrowserRouter([{
     {
       path:"/podanie",
       element: <Podanie/>
+    },
+    {
+      path:"/admin",
+      element:<AdminComponent/>
     }
   ]
 },])
