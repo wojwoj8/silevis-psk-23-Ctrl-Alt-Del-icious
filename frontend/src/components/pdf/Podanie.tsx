@@ -30,13 +30,13 @@ export default function Podanie({data}:{data:PodanieInterface}){
             <span className="mx-20">Uprzejmie proszę o wyrażenie zgody na realizację czterotygodniowej praktyki studenckiej</span><br></br>
             <span className="mx-20">w zakładzie:</span>
             <div className="mx-20 text-center">
-                <span>................................</span><br />
+                <span>{data.nazwa_firmy} {data.addres_firmy} {data.addres_firmy}</span><br />
                 <span className="text-xs">Nazwa i adres zakładu pracy i miejsca praktyki</span><br />
-                <span>................................</span><br />
+                <span>{data.imie_nazwisko_firmy} {data.tel_kon}</span><br />
                 <span className="text-xs">Imię i Nazwisko osoby reprezentującej zakład oraz dane kontaktowe (np. nr telefonu) – do podpisania Umowy pomiędzy PŚk i Zakładem</span><br />
                 <span>................................</span><br />
                 <span className="text-xs">Imię i Nazwisko osoby do opieki nad praktykantem ze strony zakładu (w przypadku gdy jest znane w momencie składania podania)</span><br />
-                <span>................................</span><br />
+                <span>{data.dat_start} - {data.data_kon}</span><br />
                 <span className="text-xs">termin rozpoczęcia i zakończenia praktyki</span><br />
             </div>
         </div>

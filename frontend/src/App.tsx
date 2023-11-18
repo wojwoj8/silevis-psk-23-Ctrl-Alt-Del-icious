@@ -5,14 +5,16 @@ import BannerComponent from './components/BannerComponent'
 
 
 import './App.css'
+import { LanguageProvider } from './context/LanguageContext'
 function App() {
- const client = ""
   return (
     <>
-      <Header/>
-      <BannerComponent/>
-      <Outlet/>
-      <Footer/>
+      <LanguageProvider>
+        <Header/>
+        <BannerComponent/>
+        <Outlet/>
+        <Footer/>
+      </LanguageProvider>
     </>
   )
 }
