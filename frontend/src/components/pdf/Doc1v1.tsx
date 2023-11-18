@@ -2,6 +2,7 @@ import { FormData } from "../interfaces/Form"
 
 export default function Doc1v1({data}:{data:FormData}){
     const empty = "........................................"
+    const short_empty = "..................."
     return(
     <div className="mx-10 my-10 page shadow-2xl">
     <div className=" mt-10 mx-10 flex flex-col items-end gap-0">
@@ -14,18 +15,18 @@ export default function Doc1v1({data}:{data:FormData}){
         <span className="mx-10">Politechniką Świętokrzyską al. Tysiąclecia Państwa Polskiego 7, 25-314 Kielce,</span><br></br>
         <span className="mx-10">zwaną dalej Uczelnią, reprezentowaną na podstawie udzielonego przez Rektora Uczelni</span><br></br>
         <div className="mx-10">
-            <span>pełnomocnictwa, przez Dziekana Wydziału ………………………… ……….……………………………………………………………………………………………………………… ,</span><br></br>
+            <span>pełnomocnictwa, przez Dziekana Wydziału {data.dziekan_wydzialu?data.dziekan_wydzialu:empty} ,</span><br></br>
         </div>
         <span className="mx-10">a</span><br></br>
-        <span className="mx-10">.......... z siedzibą w {data.miasto}. ul.{data.ulica}.,</span><br></br>
-        <span className="mx-10">o nr KRS {data.krs}, NIP {data.nip}, Regon {data.regon}, zwanym dalej</span><br></br>
+        <span className="mx-10">{data.zaklad_pracy?data.zaklad_pracy:empty} z siedzibą w {data.miasto?data.miasto:empty}. ul.{data.ulica?data.ulica:empty}.,</span><br></br>
+        <span className="mx-10">o nr KRS {data.krs?data.krs:short_empty}, NIP {data.nip?data.nip:short_empty}, Regon {data.regon?data.regon:short_empty}, zwanym dalej</span><br></br>
         <span className="mx-10"><b>Zakładem</b> lub <b>Zakładem Pracy</b>, reprezentowanym przez </span><br></br>
-        <span className="mx-10">{data.reprezentant_zakladu} .</span><br></br>
+        <span className="mx-10">{data.reprezentant_zakladu?data.reprezentant_zakladu:empty} .</span><br></br>
     </div>
     <div className="mx-10 mt-10">
-    <span >§ 1. Uczelnia kieruje studenta {data.student},</span><br></br>
-    <span>nr albumu {data.nr_albumu} do Zakładu w celu odbycia przez niego praktyki studenckiej</span><br></br>
-    <span>w okresie od {data.start_praktyk} do {data.koniec_praktyk}.</span><br></br>
+    <span >§ 1. Uczelnia kieruje studenta {data.student?data.student:empty},</span><br></br>
+    <span>nr albumu {data.nr_albumu?data.nr_albumu:short_empty} do Zakładu w celu odbycia przez niego praktyki studenckiej</span><br></br>
+    <span>w okresie od {data.start_praktyk?data.start_praktyk:empty} do {data.koniec_praktyk?data.koniec_praktyk:empty}.</span><br></br>
     <span>§ 2. Zakład zobowiązuje się do:</span><br></br>
     <span>1) zapewnienia odpowiednich stanowisk pracy, pomieszczeń, warsztatów, urządzeń, narzędzi</span><br></br>
     <span>materiałów zgodnie z programem praktyki stanowiącym załącznik nr 1 do niniejszej</span><br></br>

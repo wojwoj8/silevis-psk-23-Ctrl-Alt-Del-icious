@@ -7,6 +7,7 @@ import {  RouterProvider, createBrowserRouter } from 'react-router-dom'
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HubComponent from './components/HubComponent.tsx'
+import Before from './components/before/Before.tsx'
 
 const router = createBrowserRouter([{
   path: "/",
@@ -20,6 +21,14 @@ const router = createBrowserRouter([{
       path: "/form",
       element: <FormComponent/>,
     },
+    {
+      path: "/przed",
+      element: <Before/>
+    },
+    {
+      path:"/umowapdf",
+      element: <FormComponent/>
+    }
   ]
 },])
 

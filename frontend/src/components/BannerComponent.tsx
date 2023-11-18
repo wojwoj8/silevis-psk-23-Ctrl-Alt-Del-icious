@@ -1,6 +1,6 @@
 export default function BannerComponent(){
     return(
-        <div className="banner d-flex justify-content-evenly">
+        <div className="banner d-flex justify-content-evenly h-32">
             <div className="h4 text-white m-5">
                 Praktyki - profil akademicki
             </div>

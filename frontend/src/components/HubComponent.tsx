@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function HubComponent(){
     return(
         <div className="justify-content-center text-dark">
@@ -17,7 +19,7 @@ export default function HubComponent(){
                 </ul>
 
                 <div className="row row-cols-1 row-cols-md-3 g-4 p-5">
-                    <div className="col">
+                    <Link to='/przed' className="col">
                         <div className="card h-100">
                         <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/room_icon_144154.png" className="card-img-top" alt="..."/>
                         <div className="card-body">
@@ -25,7 +27,7 @@ export default function HubComponent(){
                             <p className="card-text">Wyszkuja interesujace oferty praktyk, sprawdz terminy, wygeneruj dokumenty</p>
                         </div>
                         </div>
-                    </div>
+                    </Link>
                     <div className="col">
                         <div className="card h-100">
                         <img src="https://icons-for-free.com/iconfiles/png/512/out+icon-1320166904342226658.png" className="card-img-top" alt="..."/>

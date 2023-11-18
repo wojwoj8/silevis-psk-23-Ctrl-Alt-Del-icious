@@ -35,6 +35,7 @@ export default function Header() {
     <div className="container-fluid">
       <div className="vr text-white ms-5"></div>
       <a className="navbar-brand text-light ms-3" href="#">Politechnika Świętokrzyska</a>
+      <div className="h3 ps-1 m-2 text-white"> WEAiI</div>
       <div className="vr text-white"></div>
 
         <ul className="navbar-nav me-auto mb-2 mb-lg-0"> </ul>

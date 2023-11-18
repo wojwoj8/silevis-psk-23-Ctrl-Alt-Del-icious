@@ -1,16 +1,17 @@
 import { FormData } from "../interfaces/Form";
 
 export default function Doc1v2({data}:{data:FormData}){
+    const empty = "..........................................................."
     return(
         <div className=" my-10 page shadow-2xl">
             <div className="mx-10 mt-20">
                 <span>§ 5. 1. Strony wyznaczają osoby właściwe do kontaktu w bieżących sprawach:</span><br></br>
-                <span>1) z ramienia Zakładu Pracy …………………………………………………………………</span><br></br>
-                <span className="mx-20">tel.: …………………………………………………………………</span><br></br>
-                <span className="mx-20">e-mail: …………………………………………………………………</span><br></br>
-                <span>2) z ramienia Uczelni: …………………………………………………………………</span><br></br>
-                <span className="mx-20">tel.: …………………………………………………………………</span><br></br>
-                <span className="mx-20">e-mail: …………………………………………………………………</span><br></br>
+                <span>1) z ramienia Zakładu Pracy {data.kontakt1_imie?data.kontakt1_imie:empty}</span><br></br>
+                <span className="mx-20">tel.: {data.kontakt1_tel?data.kontakt1_tel:empty}</span><br></br>
+                <span className="mx-20">e-mail: {data.kontakt1_email?data.kontakt1_email:empty}</span><br></br>
+                <span>2) z ramienia Uczelni: {data.kontakt2_imie?data.kontakt2_imie:empty}</span><br></br>
+                <span className="mx-20">tel.: {data.kontakt2_tel?data.kontakt2_tel:empty}</span><br></br>
+                <span className="mx-20">e-mail: {data.kontakt2_email?data.kontakt2_email:empty}</span><br></br>
 
                 <span>2. Klauzula informacyjna dotycząca przetwarzania przez Uczelnię danych osobowych</span><br></br>
                 <span>pozyskanych z Zakładu stanowi załącznik nr 2 do niniejszej umowy. Zakład zobowiązuje się</span><br></br>
