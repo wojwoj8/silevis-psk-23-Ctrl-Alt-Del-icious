@@ -10,7 +10,7 @@ export default function Doc1v1({data}:{data:FormData}){
     </div>
     <h1 className="mt-10 text-center text-3xl">Umowa o organizację praktyki studenta Politechniki Świętokrzyskiej</h1>
     <div>
-        <span className="mx-10">zawarta w dniu {data.zawarcie_umowy} r. pomiędzy:</span><br></br>
+        <span className="mx-10">zawarta w dniu {data.zawarcie_umowy?data.zawarcie_umowy:empty} r. pomiędzy:</span><br></br>
         <span className="mx-10">Politechniką Świętokrzyską al. Tysiąclecia Państwa Polskiego 7, 25-314 Kielce,</span><br></br>
         <span className="mx-10">zwaną dalej Uczelnią, reprezentowaną na podstawie udzielonego przez Rektora Uczelni</span><br></br>
         <div className="mx-10">
