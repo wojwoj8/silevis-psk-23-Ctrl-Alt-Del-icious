@@ -70,3 +70,15 @@ class Attachment1(models.Model):
 
     # def __str__(self):
     #     return f'{self.student_name} - {self.company_name}'
+
+class Sprawozdanie(models.Model):
+    student = models.CharField(max_length=100) 
+    nr_albumu = models.CharField(max_length=100) 
+    wydzial = models.CharField(max_length=200) 
+    kierunek = models.CharField(max_length=75) 
+    forma = models.CharField(max_length=125) 
+    rok_studiow = models.CharField(max_length=100) 
+    zaklad_pracy = models.CharField(max_length=150) 
+    start_praktyk = models.DateField(blank=True)
+    koniec_praktyk = models.DateField(blank=True)
+    sprawozdanie = models.TextField()
