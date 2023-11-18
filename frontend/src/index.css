@@ -40,3 +40,14 @@
 .height150{
   height:150px;
 }
+
+.acceptedbg{
+  background-color: hsla(109, 64%, 60%, 0.2);
+  text-decoration: none;
+}
+.pendingbg{
+  background-color: hsla(202, 79%, 49%, 0.2);
+}
+.deniedbg{
+  background-color: hsla(0, 79%, 49%, 0.2);
+}
