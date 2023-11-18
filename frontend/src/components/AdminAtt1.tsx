@@ -17,28 +17,8 @@ const AdminAtt1 = () =>{
       };
 
     const [listData, setListData] = useState([])
-    const [docData, setDocData] = useState()
-    const [formData, setFormData] = useState({
-        
-        zawarcie_umowy: "",
-        dziekan_wydzialu: "",
-        miasto: "",
-        ulica: "",
-        krs: "",
-        nip: "",
-        regon: "",
-        reprezentant_zakladu: "",
-        student: "",
-        nr_albumu: "",
-        start_praktyk: "",
-        koniec_praktyk: "",
-        kontakt1_imie: "",
-        kontakt1_tel: "",
-        kontakt1_email: "",
-        kontakt2_imie: "",
-        kontakt2_tel: "",
-        kontakt2_email: ""
-      });
+    const [defaultData, setDefaultData] = useState()
+    
     const getData = async () =>{
         
         try{
@@ -56,34 +36,17 @@ const AdminAtt1 = () =>{
           }
     }
 
-    const postData = async () =>{
+    const getDefaultData = async () =>{
         
         try{
-            const response = await axios.post(`/backend/adminview/`, adminData,  {
+            const response = await axios.get(`/backend/adminview/`,  {
                 headers: {
                     'accept': 'application/json',
                   },
               });
               
            console.log(response.data)
-        //    setUserData(response.data)
-        }catch (error: any) {
-          
-            console.log(error);
-          }
-    }
-
-    const editData = async () =>{
-        
-        try{
-            const response = await axios.put(`/backend/adminview/`, adminData,  {
-                headers: {
-                    'accept': 'application/json',
-                  },
-              });
-              
-           console.log(response.data)
-        //    setUserData(response.data)
+           setDefaultData(response.data)
         }catch (error: any) {
           
             console.log(error);
@@ -95,6 +58,7 @@ const AdminAtt1 = () =>{
     useEffect(()=>{
         const fetchData = async () =>{
             await getData()
+            await getDefaultData()
 
         }
         fetchData()
@@ -108,13 +72,11 @@ const AdminAtt1 = () =>{
         <div className='container'>
 
             {listData.map((item, index) => (
-                <Att1Item key={index} data={item} />
+                <Att1Item key={index} data={item} defaultData={defaultData} />
             ))
             }
 
-            <button className='btn btn-primary' onClick={getData}>get data</button>
-            <button className='btn btn-danger'  onClick={editData}>edit data</button>
-            <button className='btn btn-danger' onClick={postData}>post data</button>
+            
         </div>
     )
 }
