@@ -31,8 +31,7 @@ const Login = () => {
             setError(null)
             setUserData(response.data);
 
-            // Set user data in cookies
-            Cookies.set('userData', JSON.stringify(response.data));
+            
         } catch (error:any) {
             setError(error.response.data)
             console.log(error);
