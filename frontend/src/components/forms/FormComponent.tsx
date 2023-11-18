@@ -174,7 +174,7 @@ const FormComponent = () =>{
         progress: undefined,
         theme: "colored",
         });
-    const er400 = ()=>toast.error('Źle wypełniny formularz!!!', {
+    const er400 = ()=>toast.error('Pola z * są wymagane!', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -338,22 +338,22 @@ const FormComponent = () =>{
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="zawarcie_umowy" className="form-label">Zawarcie Umowy</label>
-                    <input type="date" className={!error.zawarcie_umowy?"form-contro border border-danger":"form-control"} value={formData?.zawarcie_umowy} onChange={handleInputChange} name="zawarcie_umowy"/>
+                    <label htmlFor="zawarcie_umowy" className="form-label">Zawarcie Umowy *</label>
+                    <input type="date" className={"form-control"} value={formData?.zawarcie_umowy} onChange={handleInputChange} name="zawarcie_umowy"/>
                 </div>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="dziekan_wydzialu" className="form-label">Dziekan Wydziału</label>
-                    <input type="text" className={!error.dziekan_wydzialu? "form-contro border border-danger":"form-control"} value={formData?.dziekan_wydzialu} name="dziekan_wydzialu" placeholder="Dziekan Wydziału"/>
+                    <label htmlFor="dziekan_wydzialu" className="form-label">Dziekan Wydziału *</label>
+                    <input type="text" className={"form-control"} value={formData?.dziekan_wydzialu} name="dziekan_wydzialu" placeholder="Dziekan Wydziału"/>
                 </div>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="miasto" className="form-label">Miasto</label>
-                    <input type="text" className={!error.miasto?"form-contro border border-danger":"form-control"} value={formData?.miasto} onChange={handleInputChange} name="miasto" placeholder="Miasto"/>
+                    <label htmlFor="miasto" className="form-label">Miasto *</label>
+                    <input type="text" className={"form-control"} value={formData?.miasto} onChange={handleInputChange} name="miasto" placeholder="Miasto"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="ulica" className="form-label">Ulica</label>
-                    <input type="text" className={!error.ulica?"form-contro border border-danger":"form-control"} value={formData?.ulica} onChange={handleInputChange} name="ulica" placeholder="Ulica"></input>
+                    <label htmlFor="ulica" className="form-label">Ulica *</label>
+                    <input type="text" className={"form-control"} value={formData?.ulica} onChange={handleInputChange} name="ulica" placeholder="Ulica"></input>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="krs" className="form-label">KRS</label>
@@ -370,58 +370,58 @@ const FormComponent = () =>{
                     <input type="text" className="form-control" value={formData?.regon} onChange={handleInputChange} name="regon" placeholder="REGON"/>
                 </div>
                 <div className="mb-3 col-md-3">
-                    <label htmlFor="reprezentant_zakladu" className="form-label">Reprezentant Zakładu</label>
-                    <input type="text" className={!error.reprezentant_zakladu?"form-contro border border-danger":"form-control"} value={formData?.reprezentant_zakladu} onChange={handleInputChange} name="reprezentant_zakladu" placeholder="Reprezentant Zakładu"/>
+                    <label htmlFor="reprezentant_zakladu" className="form-label">Reprezentant Zakładu *</label>
+                    <input type="text" className={"form-control"} value={formData?.reprezentant_zakladu} onChange={handleInputChange} name="reprezentant_zakladu" placeholder="Reprezentant Zakładu"/>
                 </div>
                 <div className="mb-3 col-md-3">
-                    <label htmlFor="zaklad_pracy" className="form-label">Zakład Pracy</label>
-                    <input type="text" className={!error.zaklad_pracy?"form-contro border border-danger":"form-control"} value={formData?.zaklad_pracy} onChange={handleInputChange} name="zaklad_pracy" placeholder="Zakład Pracy"/>
+                    <label htmlFor="zaklad_pracy" className="form-label">Zakład Pracy *</label>
+                    <input type="text" className={"form-control"} value={formData?.zaklad_pracy} onChange={handleInputChange} name="zaklad_pracy" placeholder="Zakład Pracy"/>
                 </div>
                 <div className="mb-3 col-md-3">
-                    <label htmlFor="student" className="form-label">Student</label>
-                    <input type="text" className={!error.student?"form-contro border border-danger":"form-control"} value={formData?.student} name="student" placeholder="Student"/>
+                    <label htmlFor="student" className="form-label">Student *</label>
+                    <input type="text" className={"form-control"} value={formData?.student} name="student" placeholder="Student"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="nr_albumu" className="form-label">Nr Albumu</label>
-                    <input type="text" className={!error.nr_albumu?"form-contro border border-danger":"form-control"} value={formData?.nr_albumu} name="nr_albumu" placeholder="Nr Albumu"/>
+                    <label htmlFor="nr_albumu" className="form-label">Nr Albumu *</label>
+                    <input type="text" className={"form-control"} value={formData?.nr_albumu} name="nr_albumu" placeholder="Nr Albumu"/>
                 </div>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="start_praktyk" className="form-label">Start Praktyk</label>
-                    <input type="date" className={!error.start_praktyk?"form-contro border border-danger":"form-control"} value={formData?.start_praktyk} onChange={handleInputChange} name="start_praktyk"/>
+                    <label htmlFor="start_praktyk" className="form-label">Start Praktyk *</label>
+                    <input type="date" className={"form-control"} value={formData?.start_praktyk} onChange={handleInputChange} name="start_praktyk"/>
                 </div>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="koniec_praktyk" className="form-label">Koniec Praktyk</label>
-                    <input type="date" className={!error.koniec_praktyk?"form-contro border border-danger":"form-control"} value={formData?.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk"/>
-                </div>
-            </div>
-            <div className='row'>
-                <div className="mb-3 col-md-4">
-                    <label htmlFor="kontakt1_imie" className="form-label">Kontakt 1 Imię</label>
-                    <input type="text" className={!error.kontakt1_imie?"form-contro border border-danger":"form-control"} value={formData?.kontakt1_imie} onChange={handleInputChange} name="kontakt1_imie" placeholder="Imię"/>
-                </div>
-                <div className="mb-3 col-md-4">
-                    <label htmlFor="kontakt1_tel" className="form-label">Kontakt 1 Telefon</label>
-                    <input type="tel" className={!error.kontakt1_tel?"form-contro border border-danger":"form-control"} value={formData?.kontakt1_tel} onChange={handleInputChange} name="kontakt1_tel" placeholder="Telefon"/>
-                </div>
-                <div className="mb-3 col-md-4">
-                    <label htmlFor="kontakt1_email" className="form-label">Kontakt 1 Email</label>
-                    <input type="email" className={!error.kontakt2_email?"form-contro border border-danger":"form-control"} value={formData?.kontakt1_email} onChange={handleInputChange} name="kontakt1_email" placeholder="Email"/>
+                    <label htmlFor="koniec_praktyk" className="form-label">Koniec Praktyk *</label>
+                    <input type="date" className={"form-control"} value={formData?.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="kontakt2_imie" className="form-label">Kontakt 2 Imię</label>
-                    <input type="text" className={!error.kontakt2_imie?"form-contro border border-danger":"form-control"} value={formData?.kontakt2_imie} onChange={handleInputChange} name="kontakt2_imie" placeholder="Imię"/>
+                    <label htmlFor="kontakt1_imie" className="form-label">Kontakt 1 Imię *</label>
+                    <input type="text" className={"form-control"} value={formData?.kontakt1_imie} onChange={handleInputChange} name="kontakt1_imie" placeholder="Imię"/>
                 </div>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="kontakt2_tel" className="form-label">Kontakt 2 Telefon</label>
-                    <input type="tel" className={!error.kontakt2_tel?"form-contro border border-danger":"form-control"} value={formData?.kontakt2_tel} onChange={handleInputChange} name="kontakt2_tel" placeholder="Telefon"/>
+                    <label htmlFor="kontakt1_tel" className="form-label">Kontakt 1 Telefon *</label>
+                    <input type="tel" className={"form-control"} value={formData?.kontakt1_tel} onChange={handleInputChange} name="kontakt1_tel" placeholder="Telefon"/>
                 </div>
                 <div className="mb-3 col-md-4">
-                    <label htmlFor="kontakt2_email" className="form-label">Kontakt 2 Email</label>
-                    <input type="email" className={!error.kontakt2_email?"form-contro border border-danger":"form-control"} value={formData?.kontakt2_email} onChange={handleInputChange} name="kontakt2_email" placeholder="Email"/>
+                    <label htmlFor="kontakt1_email" className="form-label">Kontakt 1 Email *</label>
+                    <input type="email" className={"form-control"} value={formData?.kontakt1_email} onChange={handleInputChange} name="kontakt1_email" placeholder="Email"/>
+                </div>
+            </div>
+            <div className='row'>
+                <div className="mb-3 col-md-4">
+                    <label htmlFor="kontakt2_imie" className="form-label">Kontakt 2 Imię *</label>
+                    <input type="text" className={"form-control"} value={formData?.kontakt2_imie} onChange={handleInputChange} name="kontakt2_imie" placeholder="Imię"/>
+                </div>
+                <div className="mb-3 col-md-4">
+                    <label htmlFor="kontakt2_tel" className="form-label">Kontakt 2 Telefon *</label>
+                    <input type="tel" className={"form-control"} value={formData?.kontakt2_tel} onChange={handleInputChange} name="kontakt2_tel" placeholder="Telefon"/>
+                </div>
+                <div className="mb-3 col-md-4">
+                    <label htmlFor="kontakt2_email" className="form-label">Kontakt 2 Email *</label>
+                    <input type="email" className={"form-control"} value={formData?.kontakt2_email} onChange={handleInputChange} name="kontakt2_email" placeholder="Email"/>
                 </div>
             </div>
             <div className='d-flex justify-content-center'>
