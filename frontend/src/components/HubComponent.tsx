@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { useContext } from 'react';
+import Cookies from 'js-cookie';
+import LanguageContext from '../context/LanguageContext'
+
 
 export default function HubComponent(){
-    const [language, setLanguage] = useState('pl');
+    const {language} = useContext(LanguageContext)
+
+    const userDataCookie = Cookies.get('userData');
     return(
         <div className="justify-content-center text-dark">
-            <button className='btn' onClick={()=>{language==='pl'?setLanguage('en'):setLanguage('pl')}}>Change language: {language}</button>
             <p className="text-center fw-bold text-muted pt-4 pb-1">
             {language=='pl'?'Zasady i program odbywania praktyk studenckich':'Rules and program for student internships'}<br></br>
             {language=='pl'?'na Wydziale Elektrotechniki, Automatyki i Informatyki':'At the Faculty of Electrical Engineering, Automation and Computer Science'}<br></br>
@@ -23,15 +27,29 @@ export default function HubComponent(){
             </ul>
 
             <div className="row row-cols-1 row-cols-md-3 g-4 p-5 ">
-                <Link to='/przed' className="col text-decoration-none">
-                    <div className="card h-100 text-center onhoverorange">
-                    <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/room_icon_144154.png" className="card-img-top mx-auto max65p pt-2" alt="..."/>
-                    <div className="card-body ">
-                        <h5 className="card-title">Przed praktyka</h5>
-                        <p className="card-text">Wyszkuja interesujace oferty praktyk, sprawdź terminy, wygeneruj dokumenty</p>
-                    </div>
-                    </div>
-                </Link>
+                {userDataCookie ? (
+                    <Link to='/przed' className="col text-decoration-none">
+                        <div className="card h-100 text-center onhoverorange">
+                            <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/room_icon_144154.png" className="card-img-top mx-auto max65p pt-2" alt="..."/>
+                            <div className="card-body ">
+                                <h5 className="card-title">Przed praktyka</h5>
+                                <p className="card-text">Wyszkuja interesujace oferty praktyk, sprawdź terminy, wygeneruj dokumenty</p>
+                            </div>
+                            </div>
+                    </Link>
+                ):
+                (
+                    <Link to='/login' className="col text-decoration-none">
+                        <div className="card h-100 text-center onhoverorange">
+                            <img src="https://cdn.icon-icons.com/icons2/2385/PNG/512/room_icon_144154.png" className="card-img-top mx-auto max65p pt-2" alt="..."/>
+                            <div className="card-body ">
+                                <h5 className="card-title">Przed praktyka</h5>
+                                <p className="card-text">Wyszkuja interesujace oferty praktyk, sprawdź terminy, wygeneruj dokumenty</p>
+                            </div>
+                            </div>
+                    </Link>
+                )}
+                
                 <Link to='/po' className="col text-decoration-none">
                     <div className="card h-100 text-center onhoverorange">
                     <img src="https://icons-for-free.com/iconfiles/png/512/out+icon-1320166904342226658.png" className="card-img-top mx-auto max65p  pt-2z" alt="..."/>

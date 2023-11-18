@@ -12,7 +12,7 @@ export default function Header() {
   let userDataJson
 
   useEffect(()=>{
-   
+    console.log(userDataCookie)
         if (userDataCookie) {
             userDataJson = JSON.parse(userDataCookie);
             setUserData(userDataJson)
@@ -22,10 +22,14 @@ export default function Header() {
             console.log('userData cookie not found');
         }
         
-      
-    
-    
 },[userDataCookie])
+
+  const Logout = () =>{
+    document.cookie = 'userData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    setUserData('')
+  }
+
+
   return (
   <nav className="navbar navbar-expand-lg orange5">
     <div className="container-fluid">
@@ -42,7 +46,7 @@ export default function Header() {
         
         <div className="vr text-white"></div>
         {userData ? (
-           <Link to="/logout" className="d-flex mx-3 text-white">Logout</Link>
+           <button className="btn btn danger d-flex mx-3 text-white" onClick={Logout}>Logout</button>
         ) :(
           <Link to="/login" className="d-flex mx-3 text-white">Login</Link>
         )
@@ -52,7 +56,13 @@ export default function Header() {
         {userData && userData.staffStatus === 2 ? (
           <Link to="/admin" className="d-flex mx-3 text-white">Admin</Link>
         ) : (
+          <></>
+          
+        )}
+        {userData && userData.staffStatus === 0 ? (
           <Link to="/userpanel" className="d-flex mx-3 text-white">User</Link>
+        ) : (
+          <></>
           
         )}
         
