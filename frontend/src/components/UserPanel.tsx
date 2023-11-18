@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios, { AxiosError } from 'axios';
 import Att1Item from './Att1Item';
+import Cookies from 'js-cookie';
 
 const UserPanel = () =>{
 
+    const userDataCookie = Cookies.get('userData');
     const handleInputChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
       ) => {
@@ -17,12 +19,13 @@ const UserPanel = () =>{
       };
 
     const [listData, setListData] = useState([])
+    const [userData, setUserData] = useState()
     const [defaultData, setDefaultData] = useState()
     
-    const getData = async () =>{
+    const getData = async (studentNumber:string) =>{
         
         try{
-            const response = await axios.get('/backend/userpanel/11111',  {
+            const response = await axios.get(`/backend/userpanel/${studentNumber}`,  {
                 headers: {
                     'accept': 'application/json',
                   },
@@ -54,10 +57,19 @@ const UserPanel = () =>{
     }
     
 
+ 
 
     useEffect(()=>{
         const fetchData = async () =>{
-            await getData()
+            if (userDataCookie) {
+                const userDataJson = JSON.parse(userDataCookie);
+                setUserData(userDataJson)
+                await getData(`${userDataJson.studentNumber}`)
+                
+            } else {
+                console.log('userData cookie not found');
+            }
+            
             await getDefaultData()
 
         }
