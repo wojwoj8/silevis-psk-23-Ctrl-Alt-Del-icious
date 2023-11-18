@@ -1,25 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios, { AxiosError } from 'axios';
-interface FormData {
-    zawarcie_umowy: string;
-    dziekan_wydzialu: string;
-    miasto: string;
-    ulica: string;
-    krs: string;
-    nip: string;
-    regon: string;
-    reprezentant_zakladu: string;
-    student: string;
-    nr_albumu: string;
-    start_praktyk: string;
-    koniec_praktyk: string;
-    kontakt1_imie: string;
-    kontakt1_tel: string;
-    kontakt1_email: string;
-    kontakt2_imie: string;
-    kontakt2_tel: string;
-    kontakt2_email: string;
-  }
+import Doc1v1 from '../pdf/Doc1v1';
+import Doc1v2 from '../pdf/Doc1v2';
+import { FormData } from '../interfaces/Form';
 
 const FormComponent = () =>{
 
@@ -35,19 +18,9 @@ const FormComponent = () =>{
 
       };
 
-    const [userData, setUserData] = useState({
-        id: "",
-        firstName: "",
-        lastName: "",
-        staffStatus: "",
-        studentStatus: "",
-        email: "",
-        studentNumber: "",
-        studentProgrammes: ['']
-    })
+    const [userData, setUserData] = useState()
     const [docData, setDocData] = useState()
-    const [formData, setFormData] = useState({
-        
+    const [formData, setFormData] = useState<FormData>({
         zawarcie_umowy: "",
         dziekan_wydzialu: "",
         miasto: "",
@@ -56,6 +29,7 @@ const FormComponent = () =>{
         nip: "",
         regon: "",
         reprezentant_zakladu: "",
+        zaklad_pracy: "",
         student: "",
         nr_albumu: "",
         start_praktyk: "",
@@ -121,23 +95,12 @@ const FormComponent = () =>{
     useEffect(()=>{
         const fetchData = async () =>{
             await getEmailData()
-
-           
         }
         fetchData()
     },[])
-
-    useEffect(() => {
-        
-        setFormData(prevFormData => ({
-            ...prevFormData,
-            nr_albumu: userData.studentNumber,
-            student: `${userData.firstName} ${userData.lastName}`
-        }));
-        
-    }, [userData]);
      
     return(
+        <div>
         <div className='container'>
             <button className='btn btn-primary' onClick={getData}>get data</button>
             <button className='btn btn-danger'  onClick={getEmailData}>get data</button>
@@ -153,80 +116,90 @@ const FormComponent = () =>{
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="miasto" className="form-label">Miasto</label>
-                    <input type="text" className="form-control" value={formData?.miasto} onChange={handleInputChange} name="miasto" placeholder="Miasto"/>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="miasto" placeholder="Miasto"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="ulica" className="form-label">Ulica</label>
-                    <input type="text" className="form-control" value={formData?.ulica} onChange={handleInputChange} name="ulica" placeholder="Ulica"></input>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="ulica" placeholder="Ulica"></input>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="krs" className="form-label">KRS</label>
-                    <input type="text" className="form-control" value={formData?.krs} onChange={handleInputChange} name="krs" placeholder="KRS"/>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="krs" placeholder="KRS"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="nip" className="form-label">NIP</label>
-                    <input type="text" className="form-control" value={formData?.nip} onChange={handleInputChange} name="nip" placeholder="NIP"/>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="nip" placeholder="NIP"/>
                 </div>
             </div>
             <div className='row'>
-                <div className="mb-3 col-md-4">
+                <div className="mb-3 col-md-3">
                     <label htmlFor="regon" className="form-label">REGON</label>
-                    <input type="text" className="form-control" value={formData?.regon} onChange={handleInputChange} name="regon" placeholder="REGON"/>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="regon" placeholder="REGON"/>
                 </div>
-                <div className="mb-3 col-md-4">
+                <div className="mb-3 col-md-3">
                     <label htmlFor="reprezentant_zakladu" className="form-label">Reprezentant Zakładu</label>
-                    <input type="text" className="form-control" value={formData?.reprezentant_zakladu} onChange={handleInputChange} name="reprezentant_zakladu" placeholder="Reprezentant Zakładu"/>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="reprezentant_zakladu" placeholder="Reprezentant Zakładu"/>
                 </div>
-                <div className="mb-3 col-md-4">
+                <div className="mb-3 col-md-3">
+                    <label htmlFor="zaklad_pracy" className="form-label">Zakład Pracy</label>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="zaklad_pracy" placeholder="Zakład Pracy"/>
+                </div>
+                <div className="mb-3 col-md-3">
                     <label htmlFor="student" className="form-label">Student</label>
-                    <input type="text" className="form-control" value={formData?.student} onChange={handleInputChange} name="student" placeholder="Student"/>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="student" placeholder="Student"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="nr_albumu" className="form-label">Nr Albumu</label>
-                    <input type="text" className="form-control" value={formData?.nr_albumu} onChange={handleInputChange} name="nr_albumu" placeholder="Nr Albumu"/>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="nr_albumu" placeholder="Nr Albumu"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="start_praktyk" className="form-label">Start Praktyk</label>
-                    <input type="date" className="form-control" value={formData?.start_praktyk} onChange={handleInputChange} name="start_praktyk"/>
+                    <input type="date" className="form-control" onChange={handleInputChange} name="start_praktyk"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="koniec_praktyk" className="form-label">Koniec Praktyk</label>
-                    <input type="date" className="form-control" value={formData?.koniec_praktyk} onChange={handleInputChange} name="koniec_praktyk"/>
+                    <input type="date" className="form-control" onChange={handleInputChange} name="koniec_praktyk"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt1_imie" className="form-label">Kontakt 1 Imię</label>
-                    <input type="text" className="form-control" value={formData?.kontakt1_imie} onChange={handleInputChange} name="kontakt1_imie" placeholder="Imię"/>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="kontakt1_imie" placeholder="Imię"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt1_tel" className="form-label">Kontakt 1 Telefon</label>
-                    <input type="tel" className="form-control" value={formData?.kontakt1_tel} onChange={handleInputChange} name="kontakt1_tel" placeholder="Telefon"/>
+                    <input type="tel" className="form-control" onChange={handleInputChange} name="kontakt1_tel" placeholder="Telefon"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt1_email" className="form-label">Kontakt 1 Email</label>
-                    <input type="email" className="form-control" value={formData?.kontakt1_email} onChange={handleInputChange} name="kontakt1_email" placeholder="Email"/>
+                    <input type="email" className="form-control" onChange={handleInputChange} name="kontakt1_email" placeholder="Email"/>
                 </div>
             </div>
             <div className='row'>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt2_imie" className="form-label">Kontakt 2 Imię</label>
-                    <input type="text" className="form-control" value={formData?.kontakt2_imie} onChange={handleInputChange} name="kontakt2_imie" placeholder="Imię"/>
+                    <input type="text" className="form-control" onChange={handleInputChange} name="kontakt2_imie" placeholder="Imię"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt2_tel" className="form-label">Kontakt 2 Telefon</label>
-                    <input type="tel" className="form-control" value={formData?.kontakt2_tel} onChange={handleInputChange} name="kontakt2_tel" placeholder="Telefon"/>
+                    <input type="tel" className="form-control" onChange={handleInputChange} name="kontakt2_tel" placeholder="Telefon"/>
                 </div>
                 <div className="mb-3 col-md-4">
                     <label htmlFor="kontakt2_email" className="form-label">Kontakt 2 Email</label>
-                    <input type="email" className="form-control" value={formData?.kontakt2_email} onChange={handleInputChange} name="kontakt2_email" placeholder="Email"/>
+                    <input type="email" className="form-control" onChange={handleInputChange} name="kontakt2_email" placeholder="Email"/>
                 </div>
             </div>
             <button className='btn btn-danger' onClick={postData}>post data</button>
+            
+        </div>
+        <div className="flex gap-5 justify-center">
+                <Doc1v1 data={formData}/>
+                <Doc1v2 data={formData}/>
+            </div>
         </div>
     )
 }

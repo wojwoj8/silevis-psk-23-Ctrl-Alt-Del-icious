@@ -26,6 +26,7 @@ class Attachment1(models.Model):
     krs = models.CharField(max_length=30)
     nip = models.CharField(max_length=30)
     regon = models.CharField(max_length=30)
+    zaklad_pracy = models.CharField(max_length=150) 
     reprezentant_zakladu = models.CharField(max_length=100) 
     student = models.CharField(max_length=100) 
     nr_albumu = models.CharField(max_length=100) 
